@@ -1,6 +1,3 @@
-
-
-
 ;;------------------
 ;;Package Management
 ;;------------------
@@ -27,9 +24,24 @@
       el-get-sources)
 
 (el-get 'sync)
-;;
-;;
-;;
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(require 'package)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" .
+						  "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
+
+
 
 
 (custom-set-variables
@@ -51,43 +63,8 @@
  ;; If there is more than one, they won't work right.
  )
 
-
-
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" .
-						  "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
-
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
-
-
-
-
-;; (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-;; (unless (require 'el-get nil 'noerror)
-;;   (with-current-buffer
-;;       (url-retrieve-synchronously
-;;        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-;;     (let (el-get-master-branch)
-;;       (goto-char (point-max))
-;;       (eval-print-last-sexp))))
-;; (el-get 'sync)
-
-
-
 (require 'ido)
 (ido-mode t)
-
-
 
 ;;=======
 ;; Python
@@ -124,11 +101,7 @@
 ;; powershell-mode
 (autoload 'powershell-mode "powershell-mode" "A editing mode for Microsoft PowerShell." t)
 (add-to-list 'auto-mode-alist '("\\.ps1\\'" . powershell-mode)) ; PowerShell script
-;; add dir to load path
-(add-to-list 'load-path "~/.emacs.d/")
 
-;; add the dir to load path
-(add-to-list 'load-path "~/.emacs.d/")
 
 ;; autoload powershell interactive shell
 (autoload 'powershell "powershell" "Start a interactive shell of PowerShell." t)
@@ -137,9 +110,6 @@
 	  '(lambda ()
 	     (progn
 	       (linum-mode -1)
-	       (local-unset-key "C-z")
-	       (local-set-key (kbd "\C-z")
-			      'undo)
 		   (ansi-color-for-comint-mode-on))))
 
 ;;=============
@@ -221,6 +191,8 @@ If the new path's directories does not exist, create them."
     backupFilePath
   )
 )
+
+
 
 (setq make-backup-file-name-function 'my-backup-file-name)
 (put 'upcase-region 'disabled nil)
