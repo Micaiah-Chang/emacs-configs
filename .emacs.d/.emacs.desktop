@@ -2,7 +2,7 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Sat May 11 17:55:29 2013
+;; Created Sat May 11 18:11:09 2013
 ;; Desktop file format version 206
 ;; Emacs version 24.3.1
 
@@ -10,7 +10,7 @@
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring nil)
+(setq search-ring '("C"))
 (setq regexp-search-ring nil)
 (setq register-alist (list (list 213465889 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk nil (get-buffer " *temp*")))) mk)) (list 213465879 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 1 (get-buffer "Gratitude.txt")))) mk)) '(48 . ";; So the idea is that you copy/paste this code into your *scratch* buffer,\n;; hit C-j, and you have a working el-get.\n(url-retrieve\n \"https://raw.github.com/dimitri/el-get/master/el-get-install.el\"\n (lambda (s)\n   (goto-char (point-max))\n   (eval-print-last-sexp)))")))
 (setq file-name-history '("c:/Users/N/AppData/Roaming/.emacs.d/el-get/.gitignore" "c:/Users/N/Documents/GitHub/el-get" "c:/Users/N/Documents/GitHub/el-get/el-get-install.el" "c:/Users/N/Documents/GitHub/el-get/" "c:/Users/N/AppData/Roaming/.emacs.d/el-get/el-get/README.md" "c:/Users/N/AppData/Roaming/.emacs" "c:/Users/N/Documents/GitHub/el-get/el-get-install.el" "c:/Users/N/Documents/GitHub/el-get/" "c:/Users/N/Documents/GitHub/el-get" "c:/Users/N/Dropbox/projects/password/bin/generate.py" "c:/Users/N/Documents/Gratitude.txt"))
@@ -21,8 +21,8 @@
   ".emacs"
   'emacs-lisp-mode
   '(visual-line-mode global-visual-line-mode linum-mode)
-  1
-  '(764 nil)
+  3959
+  '(837 nil)
   nil
   nil
   '((indent-tabs-mode) (buffer-file-coding-system . undecided-dos) (truncate-lines)))

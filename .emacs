@@ -3,7 +3,7 @@
 
 ;;------------------
 ;;Package Management
-;;------------------ 
+;;------------------
 
 (add-to-list 'load-path "~/.emacs.d/el-get/")
 
@@ -96,7 +96,7 @@
  (add-hook 'python-mode-hook #'(lambda ()
 				 (linum-mode t)))
 
-(add-to-list 'load-path "./python-mode/") 
+(add-to-list 'load-path "./python-mode/")
 (setq py-install-directory "./python-mode/")
 (require 'python-mode)
 ;; Python Mode things
@@ -132,7 +132,7 @@
 ;; autoload powershell interactive shell
 (autoload 'powershell "powershell" "Start a interactive shell of PowerShell." t)
 
-(add-hook 'shell-mode-hook 
+(add-hook 'shell-mode-hook
 	  '(lambda ()
 	     (progn
 	       (linum-mode -1)
@@ -194,7 +194,7 @@
     ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
     (if (eq (desktop-owner) (emacs-pid))
         (desktop-save desktop-dirname)))
-  (add-hook 'auto-save-hook 'my-desktop-save) 
+  (add-hook 'auto-save-hook 'my-desktop-save)
 
 
 (defun redo-tree-stuff ()
@@ -223,4 +223,3 @@ If the new path's directories does not exist, create them."
 
 (setq make-backup-file-name-function 'my-backup-file-name)
 (put 'upcase-region 'disabled nil)
-
