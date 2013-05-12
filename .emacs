@@ -118,7 +118,7 @@
 	     (progn
 	       (linum-mode -1)
 	       (local-unset-key "C-z")
-	       (local-set-key (kbd "C-z")
+	       (local-set-key (kbd "\C-z")
 			      'undo)
 		   (ansi-color-for-comint-mode-on))))
 
@@ -126,11 +126,11 @@
 ;; Key Bindings
 ;;=============
 
-(global-set-key (kbd "C-x t") 'transpose-buffers)
+(global-set-key (kbd "\C-x t") 'transpose-buffers)
 
-(global-set-key (kbd "C-x e") 'eval-buffer)
+(global-set-key (kbd "\C-x e") 'eval-buffer)
 
-(global-set-key (kbd "C-c d") 'insert-date)
+(global-set-key (kbd "\C-c d") 'insert-date)
 
 (defun transpose-buffers (arg)
   "Transpose the buffers shown in two windows."
