@@ -5,17 +5,17 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-     (goto-char (point-max))
-    (eval-print-last-sexp)))
+(ignore-errors (unless (require 'el-get nil 'noerror)
+   (with-current-buffer
+       (url-retrieve-synchronously
+        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+      (goto-char (point-max))
+     (eval-print-last-sexp)))
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 
-(push '(:name yasnippet
-              :website "https://github.com/capitaomorte/yasnippet.git"
+ (push '(:name yasnippet
+               :website "https://github.com/capitaomorte/yasnippet.git"
               :description "YASnippet is a template system for Emacs."
               :type github
               :pkgname "capitaomorte/yasnippet"
@@ -23,7 +23,7 @@
               :compile "yasnippet.el")
       el-get-sources)
 
-(el-get 'sync)
+(el-get 'sync))
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
