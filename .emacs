@@ -5,7 +5,8 @@
 ;;Package Management
 ;;------------------
 
-(add-to-list 'load-path "~/.emacs.d/el-get/")
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
@@ -137,7 +138,7 @@
 	     (progn
 	       (linum-mode -1)
 	       (local-unset-key "C-z")
-	       (local-set-key (kbd "C-z")
+	       (local-set-key (kbd "\C-z")
 			      'undo)
 		   (ansi-color-for-comint-mode-on))))
 
@@ -145,11 +146,11 @@
 ;; Key Bindings
 ;;=============
 
-(global-set-key (kbd "C-x t") 'transpose-buffers)
+(global-set-key (kbd "\C-x t") 'transpose-buffers)
 
-(global-set-key (kbd "C-x e") 'eval-buffer)
+(global-set-key (kbd "\C-x e") 'eval-buffer)
 
-(global-set-key (kbd "C-c d") 'insert-date)
+(global-set-key (kbd "\C-c d") 'insert-date)
 
 (defun transpose-buffers (arg)
   "Transpose the buffers shown in two windows."
@@ -203,8 +204,8 @@
     (global-undo-tree-mode 1)
     (defalias 'redo 'undo-tree-redo)
     (global-unset-key "\C-z")
-    (global-set-key (kbd "C-z") 'undo)
-    (global-set-key (kbd "C-S-z") 'redo)))
+    (global-set-key (kbd "\C-z") 'undo)
+    (global-set-key (kbd "\C-Z") 'redo)))
 
 (setq backup-by-copying t)
 
