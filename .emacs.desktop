@@ -1,0 +1,29 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sat May 11 19:34:43 2013
+;; Desktop file format version 206
+;; Emacs version 24.3.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/" "~/.emacs" ".emacs"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "c:/Users/N/AppData/Roaming/.emacs"
+  ".emacs"
+  'emacs-lisp-mode
+  '(visual-line-mode global-visual-line-mode linum-mode)
+  791
+  '(305 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-dos) (truncate-lines)))
+
