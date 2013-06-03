@@ -2,7 +2,7 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Sat May 18 11:14:16 2013
+;; Created Tue May 28 22:34:53 2013
 ;; Desktop file format version 206
 ;; Emacs version 24.3.1
 
@@ -10,75 +10,108 @@
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring '("socket" "request" "websock" "websocket" "print" "paredit" "evil" "yasnipp" "el-" "websoc" "\"C" "C-" "\"C" "\"" ">" "\"C"))
+(setq search-ring '("powershe" "M-x" "print" "\"C" "C-" "\"C" "\"" ">" "\"C" "se" "C-" "C"))
 (setq regexp-search-ring nil)
-(setq register-alist (list (list 213465889 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk nil (get-buffer " *temp*")))) mk)) (list 213465879 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 1 (get-buffer " ein:mlf-fontification:python-mode")))) mk)) '(48 . "")))
-(setq file-name-history '("c:/Users/N/Dropbox/projects/vgmc7/scraper/test.py" "c:/Users/N/Dropbox/projects/vgmc7/scraper/nomcheck.py" "c:/Users/N/Documents/GitHub/python_projects/skeleton/setup.py" "c:/Users/N/AppData/Roaming/.gitconfig" "c:/Users/N/AppData/Roaming/.emacs.d/auto-save-list/.saves-87244-NEWBIE~" "c:/Users/N/AppData/Roaming/.emacs" "c:/Users/N/AppData/Roaming/.emacs.d/el-get/.gitignore" "c:/Users/N/Documents/GitHub/el-get" "c:/Users/N/Documents/GitHub/el-get/el-get-install.el" "c:/Users/N/Documents/GitHub/el-get/" "c:/Users/N/AppData/Roaming/.emacs.d/el-get/el-get/README.md" "c:/Users/N/AppData/Roaming/.emacs" "c:/Users/N/Documents/GitHub/el-get/el-get-install.el" "c:/Users/N/Documents/GitHub/el-get/" "c:/Users/N/Documents/GitHub/el-get" "c:/Users/N/Dropbox/projects/password/bin/generate.py" "c:/Users/N/Documents/Gratitude.txt"))
+(setq register-alist (list (list 213465889 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk nil (get-buffer " *temp*")))) mk)) (list 213465879 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 1 (get-buffer "binary_tree_tests.py")))) mk)) '(48 . "ex*[^.]")))
+(setq file-name-history '("~/Documents/Clang/ex8.c" "/home/newbie/Documents/Clang/ex7.c" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Documents/Clang/ex6.c" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Documents/Clang/ex5.c" "/home/newbie/Downloads/install-tl-20130407/README" "/home/newbie/Downloads/Cython-0.19.1/USAGE.txt" "/home/newbie/Downloads/Cython-0.19.1/README.txt" "/home/newbie/Downloads/Cython-0.19.1/ToDo.txt" "/home/newbie/Documents/Python-stuff/.gitignore" "/home/newbie/Downloads/Cython-0.19.1/README.txt" "/home/newbie/Documents/Clang/ex4.c" "/home/newbie/Documents/Clang/.gitignore" "/home/newbie/Documents/Clang/ex4.c" "/home/newbie/Documents/Clang/.gitignore" "/home/newbie/.gitignore" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Documents/Clang/ex4.c" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Downloads/valgrind-3.8.1/Makefile" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Documents/Clang/ex2.c" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/.gitignore" "/home/newbie/Documents/Clang/make" "/home/newbie/Documents/Clang/ex1.c" "/home/newbie/Documents/Python-stuff/data_structures/tests/binary_tree_tests.py" "/home/newbie/Documents/Python-stuff/data_structures/binary_tree.py" "/home/newbie/.emacs"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 206
-  "c:/Users/N/Documents/Gratitude.txt"
-  "Gratitude.txt"
-  'text-mode
-  '(visual-line-mode global-visual-line-mode linum-mode)
-  28161
-  '(27476 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . japanese-shift-jis-dos) (truncate-lines)))
-
-(desktop-create-buffer 206
-  "c:/Users/N/Dropbox/projects/vgmc7/scraper/nomcheck.py"
-  "nomcheck.py"
-  'python-mode
-  '(visual-line-mode global-visual-line-mode linum-mode outline-minor-mode)
-  767
-  '(nil nil)
-  nil
-  nil
-  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-dos) (truncate-lines)))
-
-(desktop-create-buffer 206
-  "c:/Users/N/AppData/Roaming/.emacs"
+  "/home/newbie/.emacs"
   ".emacs"
   'emacs-lisp-mode
   '(visual-line-mode global-visual-line-mode linum-mode)
-  65
-  '(1346 nil)
+  3507
+  '(3423 nil)
   nil
   nil
-  '((buffer-file-coding-system . undecided-dos) (truncate-lines)))
+  '((buffer-file-coding-system . undecided-unix) (truncate-lines)))
 
 (desktop-create-buffer 206
-  "c:/Users/N/AppData/Roaming/.emacs.d/el-get/.gitignore"
+  "/home/newbie/Documents/Clang/ex8.c"
+  "ex8.c"
+  'c-mode
+  '(abbrev-mode visual-line-mode global-visual-line-mode linum-mode)
+  592
+  '(56 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines)))
+
+(desktop-create-buffer 206
+  "/home/newbie/Documents/Clang/Makefile"
+  "Makefile"
+  'makefile-gmake-mode
+  '(visual-line-mode global-visual-line-mode linum-mode)
+  68
+  '(354 nil)
+  nil
+  nil
+  '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix) (truncate-lines)))
+
+(desktop-create-buffer 206
+  "/home/newbie/Documents/Clang/.gitignore"
   ".gitignore"
   'fundamental-mode
   '(visual-line-mode global-visual-line-mode linum-mode)
-  49
-  '(nil nil)
+  9
+  '(4 nil)
   nil
   nil
-  '((indent-tabs-mode) (buffer-file-coding-system . undecided-dos) (truncate-lines)))
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines)))
 
 (desktop-create-buffer 206
-  "c:/Users/N/AppData/Roaming/.emacs.d/elpa/request-20130505.207/request-autoloads.el"
-  "request-autoloads.el"
-  'emacs-lisp-mode
-  '(visual-line-mode global-visual-line-mode linum-mode)
-  200
-  '(nil nil)
+  "/home/newbie/Documents/Clang/ex7.c"
+  "ex7.c"
+  'c-mode
+  '(abbrev-mode visual-line-mode global-visual-line-mode linum-mode)
+  240
+  '(240 nil)
   nil
   nil
-  '((buffer-file-coding-system . utf-8-dos) (truncate-lines)))
+  '((buffer-file-coding-system . utf-8-unix) (overwrite-mode) (truncate-lines)))
 
 (desktop-create-buffer 206
-  "c:/Users/N/AppData/Roaming/.emacs.d/elpa/websocket-20130508.2229/websocket-autoloads.el"
-  "websocket-autoloads.el"
-  'emacs-lisp-mode
-  '(visual-line-mode global-visual-line-mode linum-mode)
-  184
+  "/home/newbie/Documents/Clang/ex4.c"
+  "ex4.c"
+  'c-mode
+  '(abbrev-mode visual-line-mode global-visual-line-mode linum-mode)
+  228
   '(nil nil)
   nil
   nil
-  '((buffer-file-coding-system . utf-8-dos) (truncate-lines)))
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines)))
+
+(desktop-create-buffer 206
+  "/home/newbie/Documents/Clang/ex1.c"
+  "ex1.c"
+  'c-mode
+  '(abbrev-mode visual-line-mode global-visual-line-mode linum-mode)
+  183
+  '(200 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines)))
+
+(desktop-create-buffer 206
+  "/home/newbie/Documents/Python-stuff/data_structures/binary_tree.py"
+  "binary_tree.py"
+  'python-mode
+  '(visual-line-mode global-visual-line-mode linum-mode outline-minor-mode)
+  895
+  '(895 t)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-unix) (truncate-lines)))
+
+(desktop-create-buffer 206
+  "/home/newbie/Documents/Python-stuff/data_structures/tests/binary_tree_tests.py"
+  "binary_tree_tests.py"
+  'python-mode
+  '(visual-line-mode global-visual-line-mode linum-mode outline-minor-mode)
+  673
+  '(392 nil)
+  nil
+  nil
+  '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix) (truncate-lines)))
 
