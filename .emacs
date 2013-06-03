@@ -113,6 +113,16 @@
 		   (ansi-color-for-comint-mode-on))))
 
 ;;=============
+;; Terminal
+;;=============
+
+(add-hook 'term-mode-hook
+	  '(lambda ()
+	     (progn
+	       (linum-mode -1)
+		   (ansi-color-for-comint-mode-on))))
+
+;;=============
 ;; Key Bindings
 ;;=============
 
