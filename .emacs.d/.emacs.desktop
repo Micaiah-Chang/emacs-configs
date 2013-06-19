@@ -2,7 +2,7 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Tue May 28 22:34:53 2013
+;; Created Tue Jun 18 20:03:56 2013
 ;; Desktop file format version 206
 ;; Emacs version 24.3.1
 
@@ -10,10 +10,10 @@
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring '("powershe" "M-x" "print" "\"C" "C-" "\"C" "\"" ">" "\"C" "se" "C-" "C"))
+(setq search-ring '("term" "_load" "_open" "open" "_cre" "Database_li" "%p" "Database_find" "die(" "die" "die(" "address_print" "address_" "address_p" "multi-ter" "close"))
 (setq regexp-search-ring nil)
-(setq register-alist (list (list 213465889 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk nil (get-buffer " *temp*")))) mk)) (list 213465879 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 1 (get-buffer "binary_tree_tests.py")))) mk)) '(48 . "ex*[^.]")))
-(setq file-name-history '("~/Documents/Clang/ex8.c" "/home/newbie/Documents/Clang/ex7.c" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Documents/Clang/ex6.c" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Documents/Clang/ex5.c" "/home/newbie/Downloads/install-tl-20130407/README" "/home/newbie/Downloads/Cython-0.19.1/USAGE.txt" "/home/newbie/Downloads/Cython-0.19.1/README.txt" "/home/newbie/Downloads/Cython-0.19.1/ToDo.txt" "/home/newbie/Documents/Python-stuff/.gitignore" "/home/newbie/Downloads/Cython-0.19.1/README.txt" "/home/newbie/Documents/Clang/ex4.c" "/home/newbie/Documents/Clang/.gitignore" "/home/newbie/Documents/Clang/ex4.c" "/home/newbie/Documents/Clang/.gitignore" "/home/newbie/.gitignore" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Documents/Clang/ex4.c" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Downloads/valgrind-3.8.1/Makefile" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Documents/Clang/ex2.c" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/.gitignore" "/home/newbie/Documents/Clang/make" "/home/newbie/Documents/Clang/ex1.c" "/home/newbie/Documents/Python-stuff/data_structures/tests/binary_tree_tests.py" "/home/newbie/Documents/Python-stuff/data_structures/binary_tree.py" "/home/newbie/.emacs"))
+(setq register-alist (list (list 213465889 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk nil (get-buffer " *temp*")))) mk)) (list 213465879 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 1 (get-buffer "binary_tree_tests.py")))) mk)) '(48 . "		  for(j = 0; j < MAX_DATA; j++){")))
+(setq file-name-history '("/home/newbie/Documents/Clang/ex17.c" "/home/newbie/Documents/Clang/.gitignore" "/home/newbie/Documents/Clang/ex17.c" "/home/newbie/Documents/Clang/db.dat" "/home/newbie/Documents/Clang/db.bat" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Documents/Clang/ex17.c" "/home/newbie/Documents/Clang/ex16.c" "/home/newbie/Documents/presentation.txt" "/home/newbie/Documents/Clang/ex10.c" "/home/newbie/Documents/Clang/ex15.c" "/home/newbie/Documents/Clang/ex16.c" "/home/newbie/Documents/Clang/ex15.c" "/home/newbie/Documents/Clang/ex14.c" "/home/newbie/Documents/Clang/ex13.c" "/home/newbie/Documents/presentation.txt" "/home/newbie/Documents/Clang/.gitignore" "/home/newbie/Documents/Clang/ex12.c" "/home/newbie/Documents/Clang/ex11.c" "/home/newbie/.gitignore" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Documents/Clang/ex10.c" "/home/newbie/Documents/Clang/ex9.c" "/home/newbie/Documents/Clang/ex8.c" "~/Documents/Clang/ex8.c" "/home/newbie/Documents/Clang/ex7.c" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Documents/Clang/ex6.c" "/home/newbie/Documents/Clang/Makefile" "/home/newbie/Documents/Clang/ex5.c"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 206
@@ -21,77 +21,55 @@
   ".emacs"
   'emacs-lisp-mode
   '(visual-line-mode global-visual-line-mode linum-mode)
-  3507
-  '(3423 nil)
+  3642
+  '(2371 nil)
   nil
   nil
   '((buffer-file-coding-system . undecided-unix) (truncate-lines)))
 
 (desktop-create-buffer 206
-  "/home/newbie/Documents/Clang/ex8.c"
-  "ex8.c"
+  "/home/newbie/Documents/Clang/ex17.c"
+  "ex17.c"
   'c-mode
   '(abbrev-mode visual-line-mode global-visual-line-mode linum-mode)
-  592
-  '(56 nil)
+  10625
+  '(3363 nil)
   nil
   nil
-  '((buffer-file-coding-system . utf-8-unix) (truncate-lines)))
+  '((buffer-file-coding-system . undecided-unix) (truncate-lines)))
 
 (desktop-create-buffer 206
   "/home/newbie/Documents/Clang/Makefile"
   "Makefile"
   'makefile-gmake-mode
   '(visual-line-mode global-visual-line-mode linum-mode)
-  68
-  '(354 nil)
+  71
+  '(47 nil)
   nil
   nil
   '((indent-tabs-mode . t) (buffer-file-coding-system . undecided-unix) (truncate-lines)))
 
 (desktop-create-buffer 206
-  "/home/newbie/Documents/Clang/.gitignore"
+  "/home/newbie/Documents/Clang/ex14.c"
+  "ex14.c"
+  'c-mode
+  '(abbrev-mode visual-line-mode global-visual-line-mode linum-mode)
+  187
+  '(271 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines)))
+
+(desktop-create-buffer 206
+  "/home/newbie/.gitignore"
   ".gitignore"
   'fundamental-mode
   '(visual-line-mode global-visual-line-mode linum-mode)
-  9
-  '(4 nil)
+  47
+  '(21 nil)
   nil
   nil
-  '((buffer-file-coding-system . utf-8-unix) (truncate-lines)))
-
-(desktop-create-buffer 206
-  "/home/newbie/Documents/Clang/ex7.c"
-  "ex7.c"
-  'c-mode
-  '(abbrev-mode visual-line-mode global-visual-line-mode linum-mode)
-  240
-  '(240 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (overwrite-mode) (truncate-lines)))
-
-(desktop-create-buffer 206
-  "/home/newbie/Documents/Clang/ex4.c"
-  "ex4.c"
-  'c-mode
-  '(abbrev-mode visual-line-mode global-visual-line-mode linum-mode)
-  228
-  '(nil nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (truncate-lines)))
-
-(desktop-create-buffer 206
-  "/home/newbie/Documents/Clang/ex1.c"
-  "ex1.c"
-  'c-mode
-  '(abbrev-mode visual-line-mode global-visual-line-mode linum-mode)
-  183
-  '(200 nil)
-  nil
-  nil
-  '((buffer-file-coding-system . utf-8-unix) (truncate-lines)))
+  '((buffer-file-coding-system . undecided-unix) (truncate-lines)))
 
 (desktop-create-buffer 206
   "/home/newbie/Documents/Python-stuff/data_structures/binary_tree.py"
@@ -114,4 +92,26 @@
   nil
   nil
   '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . utf-8-unix) (truncate-lines)))
+
+(desktop-create-buffer 206
+  nil
+  "Clang"
+  'dired-mode
+  '(visual-line-mode global-visual-line-mode linum-mode)
+  228
+  '(nil nil)
+  t
+  '("/home/newbie/Documents/Clang/")
+  '((truncate-lines)))
+
+(desktop-create-buffer 206
+  "/home/newbie/.emacs.d/elpa/multi-term-20130108.2305/multi-term-autoloads.el"
+  "multi-term-autoloads.el"
+  'emacs-lisp-mode
+  '(visual-line-mode global-visual-line-mode linum-mode)
+  1341
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines)))
 
