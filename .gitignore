@@ -1,0 +1,11 @@
+c:
+.emacs.d/el-get/
+.emacs.d/auto-save-list/*
+.emacs.d/.emacs.desktop
+.cache
+.macromedia/
+.macromedia/
+.mozilla/
+Documents
+build
+skeleton
