@@ -13,6 +13,7 @@
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 
+
  (push '(:name yasnippet
                :website "https://github.com/capitaomorte/yasnippet.git"
               :description "YASnippet is a template system for Emacs."
@@ -66,6 +67,14 @@
 (ido-mode t)
 
 ;;=======
+;; C
+;;=======
+
+ (add-hook 'c-mode-common-hook #'(lambda ()
+				 (c-set-style "k&r")))
+
+
+;;=======
 ;; Python
 ;;=======
 
@@ -110,6 +119,22 @@
 	     (progn
 	       (linum-mode -1)
 		   (ansi-color-for-comint-mode-on))))
+
+;;=============
+;; Terminal
+;;=============
+
+(require 'multi-term)
+ (setq multi-term-program "/bin/bash")
+
+
+(add-hook 'term-mode-hook
+	  '(lambda ()
+	     (progn
+	       (linum-mode -1)
+		   (ansi-color-for-comint-mode-on))))
+
+
 
 ;;=============
 ;; Key Bindings
