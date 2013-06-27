@@ -1,0 +1,7 @@
+*.elc
+*~
+recipes/emacswiki/*
+recipes/elpa/*
+dir
+.emacs.d/.emacs.desktop
+.emacs.d/auto-save-list/*
