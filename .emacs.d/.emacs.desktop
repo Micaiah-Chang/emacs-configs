@@ -2,7 +2,7 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Thu Jun 27 13:27:46 2013
+;; Created Thu Jun 27 13:51:16 2013
 ;; Desktop file format version 206
 ;; Emacs version 24.3.1
 
@@ -13,7 +13,7 @@
 (setq search-ring '("AO" "section" "turb" "socket" "request" "websock" "websocket" "print" "paredit" "evil" "yasnipp" "el-" "websoc" "\"C" "C-" "\"C"))
 (setq regexp-search-ring nil)
 (setq register-alist (list (list 213465889 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 1 (get-buffer "*Python*")))) mk)) (list 213465879 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk 1 (get-buffer "nomcheck.py")))) mk)) '(48 . "t programming languages are you familiar with? Feel free to talk about relevant tech-related experiences including classes you†¢ve taken, projects you†¢ve worked on, etc. (400 words) *\n")))
-(setq file-name-history '("c:/Users/N/Dropbox/presentation.txt" "c:/Users/N/Dropbox/Midterm/EM/mybib.bib" "c:/Users/N/Dropbox/Midterm/EM/mybib.BIBTEX" "c:/Users/N/Dropbox/Midterm/EM/mybib" "c:/Users/N/Dropbox/Midterm/HW8/HW8.tex" "c:/Users/N/Dropbox/Midterm/EM/AO_writeup.tex" "c:/Users/N/Dropbox/Midterm/EM" "c:/Users/N/Dropbox/projects/vgmc7/scraper/test.py" "c:/Users/N/Dropbox/projects/vgmc7/scraper/nomcheck.py" "c:/Users/N/Documents/GitHub/python_projects/skeleton/setup.py" "c:/Users/N/AppData/Roaming/.gitconfig" "c:/Users/N/AppData/Roaming/.emacs.d/auto-save-list/.saves-87244-NEWBIE~" "c:/Users/N/AppData/Roaming/.emacs" "c:/Users/N/AppData/Roaming/.emacs.d/el-get/.gitignore" "c:/Users/N/Documents/GitHub/el-get" "c:/Users/N/Documents/GitHub/el-get/el-get-install.el" "c:/Users/N/Documents/GitHub/el-get/" "c:/Users/N/AppData/Roaming/.emacs.d/el-get/el-get/README.md" "c:/Users/N/AppData/Roaming/.emacs" "c:/Users/N/Documents/GitHub/el-get/el-get-install.el" "c:/Users/N/Documents/GitHub/el-get/" "c:/Users/N/Documents/GitHub/el-get" "c:/Users/N/Dropbox/projects/password/bin/generate.py" "c:/Users/N/Documents/Gratitude.txt"))
+(setq file-name-history '("c:/Users/N/AppData/Roaming/.gitignore" "c:/Users/N/Dropbox/presentation.txt" "c:/Users/N/Dropbox/Midterm/EM/mybib.bib" "c:/Users/N/Dropbox/Midterm/EM/mybib.BIBTEX" "c:/Users/N/Dropbox/Midterm/EM/mybib" "c:/Users/N/Dropbox/Midterm/HW8/HW8.tex" "c:/Users/N/Dropbox/Midterm/EM/AO_writeup.tex" "c:/Users/N/Dropbox/Midterm/EM" "c:/Users/N/Dropbox/projects/vgmc7/scraper/test.py" "c:/Users/N/Dropbox/projects/vgmc7/scraper/nomcheck.py" "c:/Users/N/Documents/GitHub/python_projects/skeleton/setup.py" "c:/Users/N/AppData/Roaming/.gitconfig" "c:/Users/N/AppData/Roaming/.emacs.d/auto-save-list/.saves-87244-NEWBIE~" "c:/Users/N/AppData/Roaming/.emacs" "c:/Users/N/AppData/Roaming/.emacs.d/el-get/.gitignore" "c:/Users/N/Documents/GitHub/el-get" "c:/Users/N/Documents/GitHub/el-get/el-get-install.el" "c:/Users/N/Documents/GitHub/el-get/" "c:/Users/N/AppData/Roaming/.emacs.d/el-get/el-get/README.md" "c:/Users/N/AppData/Roaming/.emacs" "c:/Users/N/Documents/GitHub/el-get/el-get-install.el" "c:/Users/N/Documents/GitHub/el-get/" "c:/Users/N/Documents/GitHub/el-get" "c:/Users/N/Dropbox/projects/password/bin/generate.py" "c:/Users/N/Documents/Gratitude.txt"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 206
@@ -48,17 +48,6 @@
   nil
   nil
   '((tab-width . 4) (indent-tabs-mode) (buffer-file-coding-system . undecided-dos) (truncate-lines)))
-
-(desktop-create-buffer 206
-  "c:/Users/N/AppData/Roaming/.emacs.d/el-get/.gitignore"
-  ".gitignore"
-  'fundamental-mode
-  '(visual-line-mode global-visual-line-mode linum-mode)
-  49
-  '(nil nil)
-  nil
-  nil
-  '((indent-tabs-mode) (buffer-file-coding-system . undecided-dos) (truncate-lines)))
 
 (desktop-create-buffer 206
   "c:/Users/N/AppData/Roaming/.emacs.d/elpa/request-20130505.207/request-autoloads.el"
