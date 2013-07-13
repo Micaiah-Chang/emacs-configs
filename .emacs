@@ -2,7 +2,11 @@
 ;;Package Management
 ;;------------------
 
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(if (eq system-type 'windows-nt)
+    (add-to-list 'load-path "~/.emacs.d/el-get/")
+    (add-to-list 'load-path "~/.emacs.d/el-get/el-get"))
+
+;; I have no idea why the first works on windows but the second on linux
 
 (unless (require 'el-get nil t)
   (url-retrieve
@@ -11,10 +15,10 @@
      (end-of-buffer)
      (eval-print-last-sexp))))
 
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get/recipes")
 
 
- (push '(:name yasnippet
+(ignore-errors (push '(:name yasnippet
                :website "https://github.com/capitaomorte/yasnippet.git"
               :description "YASnippet is a template system for Emacs."
               :type github
@@ -29,10 +33,10 @@
 ;; Note: The following has to be sync manually with git:
 ;; auctex, flymake, powershell.el, pylint, request
 (setq my-packages (append '(el-get ein magit nxhtml
-								   auto-complete geiser
+								   auto-complete
 								   ipython multi-term package
 								   paredit popup pymacs
-								   quack undo-tree websocket
+								   quack undo-tree
 								   yasnippet zenburn-theme)
 	  (mapcar 'el-get-source-name el-get-sources)))
 
@@ -47,7 +51,7 @@
     (mapc 'el-get-remove packages-to-remove)))
 
 (el-get-cleanup my-packages)
-
+)
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
@@ -106,12 +110,14 @@
  (add-hook 'python-mode-hook #'(lambda ()
 				 (linum-mode t)))
 
-(add-to-list 'load-path "./python-mode/")
-(setq py-install-directory "./python-mode/")
-(require 'python-mode)
+(add-to-list 'load-path "~/el-get/python-mode/")
+(setq py-install-directory "~/el-get/python-mode/")
+(ignore-errors (require 'python-mode)
 ;; Python Mode things
 
-(require 'ein)
+(require 'ein))
+
+;;stopgap for when windows is not playing nice
 
 ;;======
 ;; elisp
@@ -147,17 +153,17 @@
 ;;=============
 ;; Terminal
 ;;=============
+(unless (eq system-type 'windows-nt)
+  (require 'multi-term)
+  (setq multi-term-program "/bin/bash")
 
-(require 'multi-term)
- (setq multi-term-program "/bin/bash")
 
-
-(add-hook 'term-mode-hook
-	  '(lambda ()
-	     (progn
-	       (linum-mode -1)
-		   (ansi-color-for-comint-mode-on))))
-
+  (add-hook 'term-mode-hook
+	    '(lambda ()
+	       (progn
+		 (linum-mode -1)
+		 (ansi-color-for-comint-mode-on))))
+)
 
 
 ;;=============
