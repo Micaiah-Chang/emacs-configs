@@ -23,7 +23,7 @@
               :compile "yasnippet.el")
       el-get-sources)
 
-(el-get 'sync)
+;;(el-get 'sync)
 
 ;; Sync all my packages together so long as it has a recipe
 ;; Note: The following has to be sync manually with git:
@@ -113,6 +113,32 @@
 
 (require 'ein)
 
+;; Django editing
+
+
+(autoload 'django-html-mumamo-mode "~/.emacs.d/el-get/nxhtml/autostart.el")
+(setq auto-mode-alist
+      (append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
+(setq mumamo-background-colors nil) 
+(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
+;; Workaround the annoying warnings:
+;; Warning (mumamo-per-buffer-local-vars):
+;; Already 'permanent-local t: buffer-file-name
+(when (and (>= emacs-major-version 24)
+		   (>= emacs-minor-version 2))
+  (eval-after-load "mumamo"
+	'(setq mumamo-per-buffer-local-vars
+		   (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
+
+;;=================================================================
+;; (add-to-list 'load-path "~/.emacs.d/el-get/django-mode/")
+;; (require 'django-html-mode)
+;; (require 'django-mode)
+;; (yas/load-directory "~/.emacs.d/el-get/django-mode/snippets")
+;; (add-to-list 'auto-mode-alist '("\\.djhtml$" . django-html-mode))
+;;=================================================================
+;; Dunno if I need the above, will check on next startup
+
 ;;======
 ;; elisp
 ;;======
@@ -149,7 +175,7 @@
 ;;=============
 
 (require 'multi-term)
- (setq multi-term-program "/bin/bash")
+(setq multi-term-program "/bin/bash") ;; Set bash as default shell for multi-term
 
 
 (add-hook 'term-mode-hook
@@ -205,6 +231,10 @@
 (defalias 'list-buffers 'ibuffer) ; always use ibuffer
 (setq-default tab-width 4)
 (setq indent-tabs-mode nil) ;; Convert tabs to spacesr
+
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse) ;; Display file path after buffer name
+
 
 (require 'desktop)
   (desktop-save-mode 1)
