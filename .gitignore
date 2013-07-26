@@ -5,3 +5,6 @@ dir
 *.elc
 .emacs.d/el-get/el-get/recipes/emacswiki/*
 .emacs.d/el-get/el-get/recipes/elpa/*
+*
+!.emacs
+!.emacs.d

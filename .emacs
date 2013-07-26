@@ -14,8 +14,8 @@
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 
 
- (push '(:name yasnippet
-               :website "https://github.com/capitaomorte/yasnippet.git"
+(push '(:name yasnippet
+              :website "https://github.com/capitaomorte/yasnippet.git"
               :description "YASnippet is a template system for Emacs."
               :type github
               :pkgname "capitaomorte/yasnippet"
@@ -33,8 +33,8 @@
 								   ipython multi-term package
 								   paredit popup pymacs
 								   quack undo-tree websocket
-								   yasnippet zenburn-theme)
-	  (mapcar 'el-get-source-name el-get-sources)))
+								   yasnippet zenburn-theme smex)
+                          (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
 
@@ -79,7 +79,8 @@
  '(custom-enabled-themes (quote (wombat)))
  '(custom-safe-themes (quote ("71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
  '(geiser-racket-binary "C:\\Program files\\Racket\\Racket.exe")
- '(geiser-racket-gracket-binary "C:\\Program files\\Racket\\GRacket-text.exe"))
+ '(geiser-racket-gracket-binary "C:\\Program files\\Racket\\GRacket-text.exe")
+ '(yas-snippet-dirs (quote ("/home/newbie/.emacs.d/el-get/yasnippet/snippets")) nil (yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -94,8 +95,8 @@
 ;; C
 ;;=======
 
- (add-hook 'c-mode-common-hook #'(lambda ()
-				 (c-set-style "k&r")))
+(add-hook 'c-mode-common-hook #'(lambda ()
+                                  (c-set-style "k&r")))
 
 
 ;;=======
@@ -103,8 +104,8 @@
 ;;=======
 
 ;; autoenables line number
- (add-hook 'python-mode-hook #'(lambda ()
-				 (linum-mode t)))
+(add-hook 'python-mode-hook #'(lambda ()
+                                (linum-mode t)))
 
 (add-to-list 'load-path "./python-mode/")
 (setq py-install-directory "./python-mode/")
@@ -144,7 +145,7 @@
 ;;======
 
 (add-hook 'lisp-mode-hook #'(lambda ()
-			      (linum-mode t)))
+                              (linum-mode t)))
 
 ;;===========
 ;; Powershell
@@ -165,24 +166,29 @@
 (autoload 'powershell "powershell" "Start a interactive shell of PowerShell." t)
 
 (add-hook 'shell-mode-hook
-	  '(lambda ()
-	     (progn
-	       (linum-mode -1)
-		   (ansi-color-for-comint-mode-on))))
+          '(lambda ()
+             (progn
+               (linum-mode -1)
+               (ansi-color-for-comint-mode-on))))
 
 ;;=============
 ;; Terminal
 ;;=============
 
-(require 'multi-term)
-(setq multi-term-program "/bin/bash") ;; Set bash as default shell for multi-term
+
+;; in case el-get doesn't work from some userland restrictions or WINDOWS
+(ignore-errors (require 'multi-term)
+               (setq multi-term-program "/bin/bash"))
+;; Set bash as default shell for multi-term
+
 
 
 (add-hook 'term-mode-hook
-	  '(lambda ()
-	     (progn
-	       (linum-mode -1)
-		   (ansi-color-for-comint-mode-on))))
+          '(lambda ()
+             (progn
+               (linum-mode -1)
+               (ansi-color-for-comint-mode-on)
+               (yas-minor-mode -1))))
 
 
 
@@ -208,16 +214,16 @@
         (select-window (funcall selector)))
       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
 
- (defun insert-date (prefix)
-    "Insert the current date. With prefix-argument, use ISO format. With
+(defun insert-date (prefix)
+  "Insert the current date. With prefix-argument, use ISO format. With
    two prefix arguments, write out the day and month name."
-    (interactive "P")
-    (let ((format (cond
-                   ((not prefix) "%m/%d/%Y")
-                   ((equal prefix '(4)) "%Y-%m-%d")
-                   ((equal prefix '(16)) "%A, %d. %B %Y")))
-          (system-time-locale "de_DE"))
-      (insert (format-time-string format))))
+  (interactive "P")
+  (let ((format (cond
+                 ((not prefix) "%m/%d/%Y")
+                 ((equal prefix '(4)) "%Y-%m-%d")
+                 ((equal prefix '(16)) "%A, %d. %B %Y")))
+        (system-time-locale "de_DE"))
+    (insert (format-time-string format))))
 
 
 ;;============
@@ -229,21 +235,39 @@
 (show-paren-mode 1) ; Parent matching for lisp + infix languages
 (fset 'yes-or-no-p 'y-or-n-p) ; Shorten things!
 (defalias 'list-buffers 'ibuffer) ; always use ibuffer
-(setq-default tab-width 4)
-(setq indent-tabs-mode nil) ;; Convert tabs to spacesr
+(setq-default tab-width 4) ; From python habits
+(setq indent-tabs-mode nil) ;; Convert tabs to spaces
+
+;; whenever an external process changes a file underneath emacs, and there
+;; was no unsaved changes in the corresponding buffer, just revert its
+;; content to reflect what's on-disk.
+;; Mostly used for git
+(global-auto-revert-mode 1)
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse) ;; Display file path after buffer name
 
 
+;;yasnippet
+(add-to-list 'load-path "~/.emacs.d/el-get/yasnippet/snippets")
+(require 'yasnippet)
+(yas-global-mode 1)
+
+
+;; smex configurations
+(setq smex-save-file "~/.emacs.d/.smex-items")
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+
 (require 'desktop)
-  (desktop-save-mode 1)
-  (defun my-desktop-save ()
-    (interactive)
-    ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
-    (if (eq (desktop-owner) (emacs-pid))
-        (desktop-save desktop-dirname)))
-  (add-hook 'auto-save-hook 'my-desktop-save)
+(desktop-save-mode 1)
+(defun my-desktop-save ()
+  (interactive)
+  ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
+  (if (eq (desktop-owner) (emacs-pid))
+      (desktop-save desktop-dirname)))
+(add-hook 'auto-save-hook 'my-desktop-save)
 
 
 (defun redo-tree-stuff ()
@@ -255,22 +279,24 @@
     (global-set-key (kbd "\C-z") 'undo)
     (global-set-key (kbd "\C-Z") 'redo)))
 
+(redo-tree-stuff)
+
+;; Jesus christ ctrl-z should never be suspend arrggh
+
 (setq backup-by-copying t)
 
 (defun my-backup-file-name (fpath)
   "Return a new file path of a given file path.
 If the new path's directories does not exist, create them."
   (let* (
-        (backupRootDir "~/.emacs.d/emacs-backup")
-        (filePath (replace-regexp-in-string "[A-Za-z]:" "" fpath )) ; remove Windows driver letter in path, "C:"
-        (backupFilePath (replace-regexp-in-string "//" "/" (concat backupRootDir filePath "~") ))
-        )
+         (backupRootDir "~/.emacs.d/emacs-backup")
+         (filePath (replace-regexp-in-string "[A-Za-z]:" "" fpath )) ; remove Windows driver letter in path, "C:"
+         (backupFilePath (replace-regexp-in-string "//" "/" (concat backupRootDir filePath "~") ))
+         )
     (make-directory (file-name-directory backupFilePath) (file-name-directory backupFilePath))
     backupFilePath
+    )
   )
-)
-
-
 
 (setq make-backup-file-name-function 'my-backup-file-name)
 (put 'upcase-region 'disabled nil)
