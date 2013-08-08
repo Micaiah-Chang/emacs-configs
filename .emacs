@@ -120,7 +120,7 @@
 (autoload 'django-html-mumamo-mode "~/.emacs.d/el-get/nxhtml/autostart.el")
 (setq auto-mode-alist
       (append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
-(setq mumamo-background-colors nil) 
+(setq mumamo-background-colors nil)
 (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
 ;; Workaround the annoying warnings:
 ;; Warning (mumamo-per-buffer-local-vars):
@@ -202,6 +202,7 @@
 
 (global-set-key (kbd "\C-c d") 'insert-date)
 
+
 (defun transpose-buffers (arg)
   "Transpose the buffers shown in two windows."
   (interactive "p")
@@ -230,11 +231,19 @@
 ;; Global Modes
 ;;============
 
+;; aliases
+(defalias 'rnb 'rename-buffer)
+(defalias 'mt 'multi-term)
+(defalias 'dtw 'delete-trailing-whitespace)
+(defalias 'list-buffers 'ibuffer) ; always use ibuffer
+(defalias 'rb 'revert-buffer)
+
+
 (global-linum-mode 1) ; Show line numbers
 (global-visual-line-mode 1) ; Soft word-wrapping
+(column-number-mode 1) ; Show columns
 (show-paren-mode 1) ; Parent matching for lisp + infix languages
 (fset 'yes-or-no-p 'y-or-n-p) ; Shorten things!
-(defalias 'list-buffers 'ibuffer) ; always use ibuffer
 (setq-default tab-width 4) ; From python habits
 (setq indent-tabs-mode nil) ;; Convert tabs to spaces
 
