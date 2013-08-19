@@ -267,6 +267,8 @@
 ;;yasnippet
 (add-to-list 'load-path "~/.emacs.d/el-get/yasnippet/snippets")
 (require 'yasnippet)
+(setq yas/root-directory "~/.emacs.d/el-get/yasnippet/snippets")
+(yas/load-directory yas/root-directory)
 (yas-global-mode 1)
 
 
