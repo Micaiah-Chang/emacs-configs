@@ -247,8 +247,11 @@
 (defalias 'rnb 'rename-buffer)
 (defalias 'mt 'multi-term)
 (defalias 'dtw 'delete-trailing-whitespace)
-(defalias 'list-buffers 'ibuffer) ; always use ibuffer
 (defalias 'rb 'revert-buffer)
+
+;; replacements for defaults
+(defalias 'list-buffers 'ibuffer) ; always use ibuffer
+(defalias 'man 'woman) ; I like my man like I like my woman: efficient with emacs.
 
 
 (global-linum-mode 1) ; Show line numbers
