@@ -237,6 +237,11 @@
 ;;============
 ;; Global Modes
 ;;============
+;; Make things pretty
+
+(require 'powerline)
+(powerline-default-theme)
+
 
 ;; aliases
 (defalias 'rnb 'rename-buffer)
