@@ -191,6 +191,13 @@
                (yas-minor-mode -1))))
 
 
+;;=============
+;; Magit
+;;=============
+
+(require 'magit)
+(global-set-key (kbd "\C-X \C-g") 'magit-status)
+
 
 ;;=============
 ;; Key Bindings
