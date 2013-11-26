@@ -8,3 +8,15 @@ dir
 *
 !.emacs
 !.emacs.d
+eMail.py 
+__init__.py 
+manage.py 
+settings.py 
+urls.py
+LICENSE
+README.md
+accounts/
+apache/
+db.files/
+qualApp/
+templates/
