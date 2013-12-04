@@ -28,25 +28,28 @@
 ;; Sync all my packages together so long as it has a recipe
 ;; Note: The following has to be sync manually with git:
 ;; auctex, flymake, powershell.el, pylint, request
-(setq my-packages (append '(el-get ein magit nxhtml
-								   auto-complete geiser
-								   ipython multi-term package
-								   paredit popup pymacs
-								   quack undo-tree websocket
-								   yasnippet zenburn-theme smex)
-                          (mapcar 'el-get-source-name el-get-sources)))
+(setq my-packages (append
+				   '(el-get ein magit nxhtml
+							auto-complete geiser
+							multi-term package
+							paredit popup pymacs
+							python-mode quack
+							request undo-tree websocket
+							yasnippet zenburn-theme
+							smex)
+				   (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync my-packages)
 
-(defun el-get-cleanup (packages)
-  "Remove packages not explicitly declared"
-  (let* ((packages-to-keep (el-get-dependencies (mapcar 'el-get-as-symbol packages)))
-         (packages-to-remove (set-difference (mapcar 'el-get-as-symbol
-                                                     (el-get-list-package-names-with-status
-                                                      "installed")) packages-to-keep)))
-    (mapc 'el-get-remove packages-to-remove)))
+;; (defun el-get-cleanup (packages)
+;;   "Remove packages not explicitly declared"
+;;   (let* ((packages-to-keep (el-get-dependencies (mapcar 'el-get-as-symbol packages)))
+;;          (packages-to-remove (set-difference (mapcar 'el-get-as-symbol
+;;                                                      (el-get-list-package-names-with-status
+;;                                                       "installed")) packages-to-keep)))
+;;     (mapc 'el-get-remove packages-to-remove)))
 
-(el-get-cleanup my-packages)
+;; (el-get-cleanup my-packages)
 
 
 ;;; This was installed by package-install.el.
@@ -60,12 +63,17 @@
 						  "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
+
 (when
     (load
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
 
 
+
+
+(require 'ido)
+(ido-mode t)
 
 
 (custom-set-variables
@@ -89,9 +97,6 @@
  ;; If there is more than one, they won't work right.
  )
 
-(require 'ido)
-(ido-mode t)
-
 ;;=======
 ;; C
 ;;=======
@@ -108,8 +113,8 @@
 (add-hook 'python-mode-hook #'(lambda ()
                                 (linum-mode t)))
 
-(add-to-list 'load-path "./python-mode/")
-(setq py-install-directory "./python-mode/")
+(add-to-list 'load-path "~/.emacs.d/el-get/")
+(setq py-install-directory "./.emacs.d/el-get/")
 (require 'python-mode)
 ;; Python Mode things
 
@@ -243,7 +248,7 @@
 (require 'powerline)
 (powerline-default-theme)
 
-
+ 
 ;; aliases
 (defalias 'rnb 'rename-buffer)
 (defalias 'mt 'multi-term)
