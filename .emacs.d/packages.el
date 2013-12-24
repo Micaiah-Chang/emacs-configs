@@ -31,15 +31,20 @@ com/dimitri/el-get/raw/master/el-get-install.el"
 ;; Note: The following has to be sync manually with git:
 ;; auctex, flymake, powershell.el, pylint, request
 (setq my-packages (append
-				   '(el-get ein magit nxhtml
-							auto-complete geiser
-							multi-term package
-							paredit popup pymacs
-							python-mode quack
-							request undo-tree websocket
-							yasnippet zenburn-theme
-							smex)
+		   '(el-get ein nxhtml
+			    auto-complete
+			    package powerline
+			    paredit popup pymacs
+			    python-mode quack
+			    request undo-tree websocket
+			    zenburn-theme
+			    smex
+			    yasnippet) ; yasnippet magit
 				   (mapcar 'el-get-source-name el-get-sources)))
+
+(if (eq system-type 'windows-nt)
+	(append my-packages '(multi-term))
+  (append my-packages '(magit)))
 
 (el-get 'sync my-packages)
 

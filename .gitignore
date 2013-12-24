@@ -25,3 +25,6 @@ apache/
 db.files/
 qualApp/
 templates/
+/.emacs.d/elpa/archives/gnu/archive-contents
+/.emacs.d/elpa/archives/marmalade/archive-contents
+/.emacs.d/elpa/archives/melpa/archive-contents
