@@ -6,24 +6,21 @@
 
 (unless (require 'el-get nil t)
   (url-retrieve
-   "https://github.
-
-com/dimitri/el-get/raw/master/el-get-install.el"
+   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
    (lambda (s)
      (end-of-buffer)
      (eval-print-last-sexp))))
 
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get/recipes")
 
 (push '(:name yasnippet
-              :website "https://github.com/capitaomorte/yasnippet.git"
-              :description "YASnippet is a template system for Emacs."
-              :type github
-              :pkgname "capitaomorte/yasnippet"
-              :features "yasnippet"
-              :compile "yasnippet.el")
-      el-get-sources)
+               :website "https://github.com/capitaomorte/yasnippet.git"
+               :description "YASnippet is a template system for Emacs."
+               :type github
+               :pkgname "capitaomorte/yasnippet"
+               :features "yasnippet"
+               :compile "yasnippet.el")
+       el-get-sources)
 
 ;;(el-get 'sync)
 
