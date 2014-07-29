@@ -3,11 +3,15 @@
 ;;=======
 
 ;; autoenables line number
-(add-hook 'python-mode-hook #'(lambda ()
-                                (linum-mode t)))
+(add-hook 'python-mode-hook
+		  #'(lambda ()
+			  (linum-mode t)
+			  (add-hook 'before-save-hook
+						'delete-trailing-whitespace)))
 
 (add-to-list 'load-path "~/.emacs.d/el-get/")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
 (require 'python-mode)
 ;; Python Mode things
 
@@ -25,7 +29,8 @@
       (append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
 (setq mumamo-background-colors nil)
 (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
-;; Workaround the annoying warnings:
+
+;; Workaround the for the below warnings:
 ;; Warning (mumamo-per-buffer-local-vars):
 ;; Already 'permanent-local t: buffer-file-name
 (when (and (>= emacs-major-version 24)
@@ -42,3 +47,15 @@
 ;; (add-to-list 'auto-mode-alist '("\\.djhtml$" . django-html-mode))
 ;;=================================================================
 ;; Dunno if I need the above, will check on next startup
+
+(when (load "flymake" t) 
+  (defun flymake-pyflakes-init () 
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy 
+                       'flymake-create-temp-inplace)) 
+           (local-file (file-relative-name 
+                        temp-file 
+                        (file-name-directory buffer-file-name)))) 
+      (list "pyflakes" (list local-file)))) 
+  (add-to-list 'flymake-allowed-file-name-masks 
+               '("\\.py\\'" flymake-pyflakes-init)))
+(add-hook 'python-mode-hook 'flymake-mode)
