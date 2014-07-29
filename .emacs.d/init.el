@@ -4,7 +4,7 @@
 (load-file "~/.emacs.d/elsp.el")
 (load-file "~/.emacs.d/keybindings.el")
 (load-file "~/.emacs.d/powershell-config.el")
-(load-file "~/.emacs.d/term.el")
+(load-file "~/.emacs.d/term-config.el")
 (load-file "~/.emacs.d/python.el")
 
 (add-to-list 'load-path "~/.emacs.d/igor-mode-master")
