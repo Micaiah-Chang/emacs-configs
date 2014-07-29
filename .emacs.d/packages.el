@@ -30,6 +30,7 @@
 (setq my-packages (append
 		   '(el-get ein nxhtml
 			    auto-complete
+			    jedi
 			    package powerline
 			    paredit popup pymacs
 			    python-mode quack

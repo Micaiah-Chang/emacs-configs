@@ -7,11 +7,15 @@
                                 (linum-mode t)))
 
 (add-to-list 'load-path "~/.emacs.d/el-get/")
-(setq py-install-directory "./.emacs.d/el-get/")
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (require 'python-mode)
 ;; Python Mode things
 
 (require 'ein)
+
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)     
+
 
 ;; Django editing
 
