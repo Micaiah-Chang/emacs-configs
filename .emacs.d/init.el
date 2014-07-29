@@ -14,6 +14,8 @@
 ;; Magit
 ;;=============
 
+(unless (eq system-type 'windows-nt)
+  (add-to-list 'load-path "~/.emacs.d/el-get/magit"))
 (require 'magit)
 (global-set-key (kbd "\C-X \C-g") 'magit-status)
 
