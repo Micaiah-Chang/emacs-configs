@@ -13,10 +13,10 @@ dir
 .emacs.d/el-get/el-get/recipes/elpa/*
 .emacs.d/el-get/*
 .emacs.d/session.*
-eMail.py 
-__init__.py 
-manage.py 
-settings.py 
+eMail.py
+__init__.py
+manage.py
+settings.py
 urls.py
 LICENSE
 README.md

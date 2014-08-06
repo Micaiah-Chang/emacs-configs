@@ -4,12 +4,13 @@
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
-(unless (require 'el-get nil t)
-  (url-retrieve
-   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
-   (lambda (s)
-     (end-of-buffer)
-     (eval-print-last-sexp))))
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get/recipes")
 
@@ -30,13 +31,11 @@
 (setq my-packages (append
 		   '(el-get ein nxhtml
 			    auto-complete
-			    powerline
+			    jedi package powerline
 			    paredit popup pymacs
 			    python-mode quack
 			    request undo-tree websocket
-			    zenburn-theme
-			    smex
-			    yasnippet) ; yasnippet magit
+				smex yasnippet zenburn) ; yasnippet magit
 				   (mapcar 'el-get-source-name el-get-sources)))
 
 (if (eq system-type 'windows-nt)
