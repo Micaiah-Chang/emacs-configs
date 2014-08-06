@@ -105,9 +105,11 @@
     (defalias 'redo 'undo-tree-redo)
     (global-unset-key "\C-z")
     (global-set-key (kbd "\C-z") 'undo)
-    (global-set-key (kbd "\C-Z") 'redo)))
+    (global-set-key [(ctrl shift z)] 'redo)))
 
 (redo-tree-stuff)
+
+
 
 ;; Jesus christ ctrl-z should never be suspend arrggh
 
