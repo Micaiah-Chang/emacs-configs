@@ -30,7 +30,7 @@
 (setq my-packages (append
 		   '(el-get ein nxhtml
 			    auto-complete
-			    package powerline
+			    powerline
 			    paredit popup pymacs
 			    python-mode quack
 			    request undo-tree websocket
@@ -41,7 +41,7 @@
 
 (if (eq system-type 'windows-nt)
 	(append my-packages '(multi-term))
-  (append my-packages '(magit)))
+  (append my-packages '()))
 
 (el-get 'sync my-packages)
 
@@ -68,8 +68,7 @@
 						  "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
-
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
+(package-initialize)
+;;(when
+;;     (load(expand-file-name "~/.emacs.d/elpa/package.el"))
+;;   (package-initialize))
