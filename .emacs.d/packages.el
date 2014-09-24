@@ -31,12 +31,12 @@
 (setq my-packages (append
 		   '(el-get ein nxhtml
 			    auto-complete
-			    jedi package powerline
+			    package powerline
 			    paredit popup pymacs
 			    python-mode quack
 			    request undo-tree websocket
-				smex yasnippet zenburn) ; yasnippet magit
-				   (mapcar 'el-get-source-name el-get-sources)))
+			    smex yasnippet zenburn) ; yasnippet magit
+		   (mapcar 'el-get-source-name el-get-sources)))
 
 (if (eq system-type 'windows-nt)
 	(append my-packages '(multi-term))
