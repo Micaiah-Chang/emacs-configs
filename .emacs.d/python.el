@@ -7,7 +7,8 @@
 		  #'(lambda ()
 			  (linum-mode t)
 			  (add-hook 'before-save-hook
-						'delete-trailing-whitespace)))
+						'delete-trailing-whitespace)
+			  (highlight-indentation-current-column-mode)))
 
 (add-to-list 'load-path "~/.emacs.d/el-get/")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -18,7 +19,7 @@
 (require 'ein)
 
 (add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)     
+(setq jedi:complete-on-dot t)
 
 
 ;; Django editing
@@ -48,14 +49,14 @@
 ;;=================================================================
 ;; Dunno if I need the above, will check on next startup
 
-(when (load "flymake" t) 
-  (defun flymake-pyflakes-init () 
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy 
-                       'flymake-create-temp-inplace)) 
-           (local-file (file-relative-name 
-                        temp-file 
-                        (file-name-directory buffer-file-name)))) 
-      (list "pyflakes" (list local-file)))) 
-  (add-to-list 'flymake-allowed-file-name-masks 
+(when (load "flymake" t)
+  (defun flymake-pyflakes-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                       'flymake-create-temp-inplace))
+           (local-file (file-relative-name
+                        temp-file
+                        (file-name-directory buffer-file-name))))
+      (list "pyflakes" (list local-file))))
+  (add-to-list 'flymake-allowed-file-name-masks
                '("\\.py\\'" flymake-pyflakes-init)))
 (add-hook 'python-mode-hook 'flymake-mode)

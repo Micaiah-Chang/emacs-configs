@@ -31,6 +31,7 @@
 (setq my-packages (append
 		   '(el-get ein nxhtml
 			    auto-complete
+				highlight-indentation
 			    jedi jshint-mode
 				package powerline
 			    paredit popup pymacs

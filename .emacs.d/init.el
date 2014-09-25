@@ -85,6 +85,15 @@
 (yas-global-mode 1)
 
 
+;;autocomplete
+(add-to-list 'load-path "~/.emacs.d/el-get/auto-complete")
+(require 'auto-complete-config)
+(add-to-list 'load-path "~/.emacs.d/el-get/auto-complete/dict")
+
+;; Allow yas to trigger first then ac
+(ac-set-trigger-key "TAB")
+(ac-set-trigger-key "<tab>")
+
 ;; smex configurations
 (setq smex-save-file "~/.emacs.d/.smex-items")
 (global-set-key (kbd "M-x") 'smex)
