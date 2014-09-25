@@ -31,7 +31,8 @@
 (setq my-packages (append
 		   '(el-get ein nxhtml
 			    auto-complete
-			    jedi package powerline
+			    jedi jshint-mode
+				package powerline
 			    paredit popup pymacs
 			    python-mode quack
 			    request undo-tree websocket

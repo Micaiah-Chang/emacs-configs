@@ -13,6 +13,7 @@
  '(custom-safe-themes (quote ("71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
  '(geiser-racket-binary "C:\\Program files\\Racket\\Racket.exe")
  '(geiser-racket-gracket-binary "C:\\Program files\\Racket\\GRacket-text.exe")
+ '(js3-indent-level 4)
  '(py-indent-paren-spanned-multilines-p nil)
  '(safe-local-variable-values (quote ((eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook" (add-hook (quote write-contents-functions) (lambda nil (delete-trailing-whitespace) nil)) (require (quote whitespace)) "Sometimes the mode needs to be toggled off and on." (whitespace-mode 0) (whitespace-mode 1)) (whitespace-line-column . 80) (whitespace-style face trailing lines-tail) (require-final-newline . t))))
  '(show-paren-mode t)

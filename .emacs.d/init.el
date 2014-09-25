@@ -6,6 +6,7 @@
 (load-file "~/.emacs.d/powershell-config.el")
 (load-file "~/.emacs.d/term-config.el")
 (load-file "~/.emacs.d/python.el")
+(load-file "~/.emacs.d/js.el")
 
 (add-to-list 'load-path "~/.emacs.d/igor-mode-master")
 (require 'igor-mode)
