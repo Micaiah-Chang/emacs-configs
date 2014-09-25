@@ -4,6 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#242424" "#e5786d" "#95e454" (lambda (x) (+ x x)) (lambda (x) (+ x x)) "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+ '(before-save-hook (quote (delete-trailing-whitespace)))
  '(column-number-mode t)
  '(cua-enable-cua-keys nil)
  '(cua-mode t nil (cua-base))
