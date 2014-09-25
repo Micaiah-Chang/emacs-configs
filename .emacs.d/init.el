@@ -32,40 +32,23 @@
 (unless (eq system-type 'windows-nt)
   (add-to-list 'load-path "~/.emacs.d/el-get/magit"))
 (require 'magit)
-(global-set-key (kbd "\C-X \C-g") 'magit-status)
+(global-set-key (kbd "\C-c g") 'magit-status)
+
 
 ;;============
 ;; Global Modes
 ;;============
-;; Make things pretty
 
-(require 'powerline)
-; (powerline-default-theme)
+;;info stuff
+(add-to-list 'load-path "~/.emacs.d/el-get/pydoc-info")
+(require 'pydoc-info)
 
+(require 'info-look)
 
-(require 'ido)
-(ido-mode t)
-
-
- 
-;; aliases
-(defalias 'rnb 'rename-buffer)
-(defalias 'mt 'multi-term)
-(defalias 'dtw 'delete-trailing-whitespace)
-(defalias 'rb 'revert-buffer)
-
-;; replacements for defaults
-(defalias 'list-buffers 'ibuffer) ; always use ibuffer
-(defalias 'man 'woman) ; I like my man like I like my woman: efficient with emacs.
-
-
-(global-linum-mode 1) ; Show line numbers
-(global-visual-line-mode 1) ; Soft word-wrapping
-(column-number-mode 1) ; Show columns
-(show-paren-mode 1) ; Parent matching for lisp + infix languages
-(fset 'yes-or-no-p 'y-or-n-p) ; Shorten things!
-(setq-default tab-width 4) ; From python habits
-(setq indent-tabs-mode nil) ;; Convert tabs to spaces
+(info-lookup-add-help
+ :mode 'python-mode
+ :regexp "[[:alnum:]_]+"
+ :doc-spec '(("(python)Index" nil "")))
 
 ;; whenever an external process changes a file underneath emacs, and there
 ;; was no unsaved changes in the corresponding buffer, just revert its
@@ -97,7 +80,7 @@
 ;; smex configurations
 (setq smex-save-file "~/.emacs.d/.smex-items")
 (global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key [(meta shift x)] 'smex-major-mode-commands)
 
 
 (require 'desktop)
@@ -141,5 +124,73 @@ If the new path's directories does not exist, create them."
 					(file-name-directory backupFilePath))
     backupFilePath))
 
+
+(defun move-buffer-file (dir)
+  "Moves both current buffer and file it's visiting to DIR."
+  (interactive "DNew directory: ")
+  (let* ((name (buffer-name))
+		 (filename (buffer-file-name))
+		 (dir
+		  (if (string-match dir "\\(?:/\\|\\\\)$")
+			  (substring dir 0 -1) dir))
+		 (newname (concat dir "/" name)))
+
+	(if (not filename)
+		(message "Buffer '%s' is not visiting a file!" name)
+	  (progn
+		(copy-file filename newname 1)
+		(delete-file filename)
+		(set-visited-file-name newname)
+		(set-buffer-modified-p nil) 	t))))
+
+(defun rename-file-and-buffer (new-name)
+  "Renames both current buffer and file it's visiting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+		(filename (buffer-file-name)))
+	(if (not filename)
+		(message "Buffer '%s' is not visiting a file!" name)
+	  (if (get-buffer new-name)
+		  (message "A buffer named '%s' already exists!" new-name)
+		(progn
+		  (rename-file name new-name 1)
+		  (rename-buffer new-name)
+		  (set-visited-file-name new-name)
+		  (set-buffer-modified-p nil))))))
+
+
+
 (setq make-backup-file-name-function 'my-backup-file-name)
 (put 'upcase-region 'disabled nil)
+
+;; Make things pretty
+
+(require 'powerline)
+; (powerline-default-theme)
+
+
+(require 'ido)
+(ido-mode t)
+
+
+
+;; aliases
+(defalias 'rnb 'rename-buffer)
+(defalias 'mt 'multi-term)
+(defalias 'dtw 'delete-trailing-whitespace)
+(defalias 'rb 'revert-buffer)
+
+;; replacements for defaults
+(defalias 'list-buffers 'ibuffer) ; always use ibuffer
+(defalias 'man 'woman) ; I like my man like I like my woman: efficient with emacs.
+(defalias 'mbf 'move-buffer-file )
+(defalias 'rnfb 'rename-file-and-buffer)
+
+(global-linum-mode 1) ; Show line numbers
+(global-visual-line-mode 1) ; Soft word-wrapping
+(column-number-mode 1) ; Show columns
+(show-paren-mode 1) ; Parent matching for lisp + infix languages
+(fset 'yes-or-no-p 'y-or-n-p) ; Shorten things!
+(setq-default tab-width 4) ; From python habits
+(setq indent-tabs-mode nil) ;; Convert tabs to spaces
+(tool-bar-mode -1) ;; Remove buttons
