@@ -32,6 +32,9 @@
 		   '(el-get ein nxhtml
 			    auto-complete
 			    package powerline
+				highlight-indentation
+			    jedi jshint-mode
+				package powerline
 			    paredit popup pymacs
 			    python-mode quack
 			    request undo-tree websocket
