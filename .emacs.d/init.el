@@ -42,7 +42,8 @@
 
 ;;info stuff
 (add-to-list 'load-path "~/.emacs.d/el-get/pydoc-info")
-(require 'pydoc-info)
+(unless (eq system-type 'windows-nt)
+    (require 'pydoc-info))
 
 (require 'info-look)
 
