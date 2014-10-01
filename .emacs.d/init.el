@@ -40,6 +40,8 @@
 ;; Global Modes
 ;;============
 
+
+
 ;;info stuff
 (add-to-list 'load-path "~/.emacs.d/el-get/pydoc-info")
 (unless (eq system-type 'windows-nt)
@@ -168,7 +170,14 @@ If the new path's directories does not exist, create them."
 ;; Make things pretty
 
 (require 'powerline)
-; (powerline-default-theme)
+
+(set-face-attribute 'mode-line nil
+                    :background "OliveDrab3"
+					:foreground "black20"
+                    :box nil)
+(set-face-attribute 'mode-line-inactive nil
+                    :box nil)
+; make powerline look like vi
 
 
 (require 'ido)
