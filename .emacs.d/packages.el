@@ -32,9 +32,9 @@
 		   '(el-get ein nxhtml
 			    auto-complete
 			    package powerline
-				highlight-indentation
+			    highlight-indentation
 			    jedi jshint-mode
-				package powerline
+			    package powerline
 			    paredit popup pymacs
 			    python-mode quack
 			    request undo-tree websocket
@@ -67,7 +67,7 @@
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" .
-						  "http://marmalade-repo.org/packages/")
+			  "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (package-initialize)
