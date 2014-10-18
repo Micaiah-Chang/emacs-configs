@@ -18,9 +18,6 @@
 
 (require 'ein)
 
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
-
 
 ;; Django editing
 
