@@ -173,7 +173,7 @@ If the new path's directories does not exist, create them."
 
 (set-face-attribute 'mode-line nil
                     :background "OliveDrab3"
-					:foreground "black20"
+					:foreground "black"
                     :box nil)
 (set-face-attribute 'mode-line-inactive nil
                     :box nil)
