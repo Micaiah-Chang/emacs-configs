@@ -61,7 +61,7 @@
 (global-auto-revert-mode 1)
 
 (require 'uniquify)
-(setq uniquify-buffer-name-style 'reverse) ;; Display file path after buffer name
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets) ;; Display file path after buffer name
 
 
 ;;yasnippet
