@@ -18,9 +18,7 @@
  '(safe-local-variable-values (quote ((eval ignore-errors "Write-contents-functions is a buffer-local alternative to before-save-hook" (add-hook (quote write-contents-functions) (lambda nil (delete-trailing-whitespace) nil)) (require (quote whitespace)) "Sometimes the mode needs to be toggled off and on." (whitespace-mode 0) (whitespace-mode 1)) (whitespace-line-column . 80) (whitespace-style face trailing lines-tail) (require-final-newline . t))))
  '(scroll-down-aggressively 0.4)
  '(scroll-up-aggressively 0.5)
- '(show-paren-mode t)
- '(yas-snippet-dirs (quote ("/home/newbie/.emacs.d/el-get/yasnippet/snippets")) nil
-					(yasnippet)))
+ '(show-paren-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
