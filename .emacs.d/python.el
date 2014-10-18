@@ -6,9 +6,8 @@
 (add-hook 'python-mode-hook
 		  #'(lambda ()
 			  (linum-mode t)
-			  (add-hook 'before-save-hook
-						'delete-trailing-whitespace)
-			  (highlight-indentation-current-column-mode)))
+			  (highlight-indentation-current-column-mode)
+			  (remove-hook 'before-save-hook 'delete-trailing-whitespace)))
 
 (add-to-list 'load-path "~/.emacs.d/el-get/")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -17,9 +16,8 @@
 ;; Python Mode things
 
 (require 'ein)
-
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)
+;(add-hook 'python-mode-hook 'jedi:setup)
+;(setq jedi:complete-on-dot t)
 
 
 ;; Django editing
