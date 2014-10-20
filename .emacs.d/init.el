@@ -180,6 +180,11 @@ If the new path's directories does not exist, create them."
 ; make powerline look like vi
 
 
+;; No scrollbars on windows
+(when (eq system-type 'windows-nt)
+    (menu-bar-no-scroll-bar))
+
+
 (require 'ido)
 (ido-mode t)
 
