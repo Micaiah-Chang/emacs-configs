@@ -14,5 +14,6 @@
   "Load a file in current user's configuration directory"
   (load-file (expand-file-name file user-init-dir)))
 
+(server-start)
 
 (load-user-file "init.el") ;; Everything is down this rabbit hole whee
