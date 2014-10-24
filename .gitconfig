@@ -1,7 +1,0 @@
-[credential]
-	helper = cache
-[user]
-	name = Micaiah-Chang
-	email = Micaiah@server.fake
-[core]
-	editor = emacs
