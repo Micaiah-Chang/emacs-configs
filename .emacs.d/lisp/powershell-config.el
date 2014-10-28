@@ -2,7 +2,6 @@
 ;; Powershell
 ;;===========
 
-(add-to-list 'load-path "~/.emacs.d/")
 (autoload 'powershell "powershell" "Run powershell as a shell within emacs." t)
 
 ;; powershell-mode
