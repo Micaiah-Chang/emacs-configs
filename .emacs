@@ -1,12 +1,15 @@
 (when (string-equal system-type "windows-nt")
   (setq user-emacs-directory "c:/Users/Alan/AppData/Roaming/.emacs.d/"))
+;; Change load-path to the ~.emacs.d/lisp/ subdirectory
 
 (defconst user-init-dir
   (cond ((boundp 'user-emacs-directory)
-         user-emacs-directory)
+         (concat user-emacs-directory
+                 (convert-standard-filename "lisp/")))
         ((boundp 'user-init-directory)
-         user-init-directory)
-        (t "~/.emacs.d/")))
+         (concat user-init-directory
+                 (convert-standard-filename "lisp/")))
+        (t "~/.emacs.d/lisp/")))
 ;; Dynamically set the home location
 
 (defun load-user-file (file)

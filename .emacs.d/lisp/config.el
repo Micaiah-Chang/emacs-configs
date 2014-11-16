@@ -8,7 +8,7 @@
  '(cua-enable-cua-keys nil)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (wombat)))
- '(custom-file "~/.emacs.d/config.el")
+ '(custom-file "~/.emacs.d/lisp/config.el")
  '(custom-safe-themes (quote ("71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
  '(geiser-racket-binary "C:\\Program files\\Racket\\Racket.exe")
  '(geiser-racket-gracket-binary "C:\\Program files\\Racket\\GRacket-text.exe")

@@ -29,3 +29,4 @@ templates/
 /.emacs.d/elpa/archives/marmalade/archive-contents
 /.emacs.d/elpa/archives/melpa/archive-contents
 /.emacs.d/request/curl-cookie-jar
+!.emacs.d/lisp/*

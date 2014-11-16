@@ -1,13 +1,13 @@
-(load-file "~/.emacs.d/packages.el")
-(load-file "~/.emacs.d/config.el")
-(load-file "~/.emacs.d/clang.el")
-(load-file "~/.emacs.d/elsp.el")
-(load-file "~/.emacs.d/keybindings.el")
-(load-file "~/.emacs.d/powershell-config.el")
+(load-user-file "packages.el")
+(load-user-file "config.el")
+(load-user-file "clang.el")
+(load-user-file "elsp.el")
+(load-user-file "keybindings.el")
+(load-user-file "powershell-config.el")
 (unless (eq system-type 'windows-nt)
-  (load-file "~/.emacs.d/term-config.el"))
-(load-file "~/.emacs.d/python.el")
-(load-file "~/.emacs.d/js.el")
+  (load-user-file "term-config.el"))
+(load-user-file "python.el")
+(load-user-file "js.el")
 
 (add-to-list 'load-path "~/.emacs.d/igor-mode-master")
 (require 'igor-mode)
@@ -229,6 +229,23 @@ If the new path's directories does not exist, create them."
 
 (require 'ido)
 (ido-mode t)
+
+
+;; Required to stop multi-term from breaking
+;; (defmacro ad-macro-p (definition)
+;;   ;;"non-nil if DEFINITION is a macro."
+;;   (` (eq (car-safe (, definition)) 'macro)))
+
+
+;; (defun ad-advised-definition-p (definition)
+;;   ;;"non-nil if DEFINITION was generated from advice information."
+;;   (if (or (ad-lambda-p definition)
+;; 		  (ad-macro-p definition)
+;; 		  (ad-compiled-p definition))
+;; 	  (let ((docstring (ad-docstring definition)))
+;; 		(and (stringp docstring)
+;; 			 (string-match
+;; 			  ad-advised-definition-docstring-regexp docstring)))))
 
 
 
