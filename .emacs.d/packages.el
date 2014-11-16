@@ -14,15 +14,6 @@
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get/recipes")
 
-(push '(:name yasnippet
-               :website "https://github.com/capitaomorte/yasnippet.git"
-               :description "YASnippet is a template system for Emacs."
-               :type github
-               :pkgname "capitaomorte/yasnippet"
-               :features "yasnippet"
-               :compile "yasnippet.el")
-       el-get-sources)
-
 ;;(el-get 'sync)
 
 ;; Sync all my packages together so long as it has a recipe
@@ -32,17 +23,17 @@
 		   '(el-get ein nxhtml
 			    auto-complete
 			    highlight-indentation
-				jshint-mode package
-				powerline paredit 
+			    jshint-mode package
+			    powerline paredit 
 			    popup pymacs
 			    python-mode quack
 			    request undo-tree websocket
-			    smex yasnippet zenburn) ; yasnippet magit
+			    smex zenburn) ; yasnippet magit
 		   (mapcar 'el-get-source-name el-get-sources)))
 
 (if (eq system-type 'windows-nt)
 	(append my-packages '(multi-term))
-  (append my-packages '()))
+  (append my-packages '(yasnippet)))
 
 (el-get 'sync my-packages)
 
