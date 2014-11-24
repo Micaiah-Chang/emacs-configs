@@ -35,8 +35,8 @@
 				jshint-mode package
 				powerline paredit 
 			    popup pymacs
-			    python-mode quack
-			    request undo-tree websocket
+			    python-mode quack request
+			    tramp undo-tree websocket
 			    smex yasnippet zenburn) ; yasnippet magit
 		   (mapcar 'el-get-source-name el-get-sources)))
 
