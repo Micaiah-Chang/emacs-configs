@@ -30,3 +30,4 @@ templates/
 /.emacs.d/elpa/archives/melpa/archive-contents
 /.emacs.d/request/curl-cookie-jar
 !.emacs.d/lisp/*
+/.emacs.d/.ido.last
