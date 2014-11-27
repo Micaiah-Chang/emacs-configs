@@ -13,6 +13,10 @@
 (require 'igor-mode)
 
 ;;------------
+;; Tramp
+;;------------
+(setq tramp-default-method "ssh")
+;;------------
 ;; Octave
 ;;------------
 (setq auto-mode-alist (cons '("\\.m$" . octave-mode)
@@ -23,6 +27,14 @@
 ;;------------
 (setq auto-mode-alist (cons '("\\.scala$" . scala-mode)
 							auto-mode-alist))
+
+;;------------
+;; Paredit
+;;------------
+
+(require 'paredit) 
+
+(paredit-mode 1)
 
 ;;------------
 ;; Magit
