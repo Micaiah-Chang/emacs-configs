@@ -12,23 +12,21 @@
 (add-to-list 'load-path "~/.emacs.d/igor-mode-master")
 (require 'igor-mode)
 
-
-
-;;=============
+;;------------
 ;; Octave
-;;=============
+;;------------
 (setq auto-mode-alist (cons '("\\.m$" . octave-mode)
 							auto-mode-alist))
 
-;;=============
+;;------------
 ;; Scala
-;;=============
+;;------------
 (setq auto-mode-alist (cons '("\\.scala$" . scala-mode)
 							auto-mode-alist))
 
-;;=============
+;;------------
 ;; Magit
-;;=============
+;;------------
 
 (unless (eq system-type 'windows-nt)
   (add-to-list 'load-path "~/.emacs.d/el-get/magit"))
