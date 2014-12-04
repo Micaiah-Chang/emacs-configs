@@ -12,23 +12,33 @@
 (add-to-list 'load-path "~/.emacs.d/igor-mode-master")
 (require 'igor-mode)
 
-
-
-;;=============
+;;------------
+;; Tramp
+;;------------
+(setq tramp-default-method "ssh")
+;;------------
 ;; Octave
-;;=============
+;;------------
 (setq auto-mode-alist (cons '("\\.m$" . octave-mode)
 							auto-mode-alist))
 
-;;=============
+;;------------
 ;; Scala
-;;=============
+;;------------
 (setq auto-mode-alist (cons '("\\.scala$" . scala-mode)
 							auto-mode-alist))
 
-;;=============
+;;------------
+;; Paredit
+;;------------
+
+(require 'paredit) 
+
+(paredit-mode 1)
+
+;;------------
 ;; Magit
-;;=============
+;;------------
 
 (unless (eq system-type 'windows-nt)
   (add-to-list 'load-path "~/.emacs.d/el-get/magit"))

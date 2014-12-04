@@ -20,15 +20,15 @@
 ;; Note: The following has to be sync manually with git:
 ;; auctex, flymake, powershell.el, pylint, request
 (setq my-packages (append
-		   '(el-get ein nxhtml
-			    auto-complete
-			    highlight-indentation
-			    jshint-mode package
-			    powerline paredit 
-			    popup pymacs
-			    python-mode quack
-			    request undo-tree websocket
-			    smex zenburn) ; yasnippet magit
+		   '(el-get
+			 auto-complete ein
+			 highlight-indentation
+			 jshint-mode nxhtml package
+			 powerline paredit 
+			 popup pymacs python-mode
+			 python-mode quack smex 
+			 tramp request undo-tree 
+			 websocket zenburn) ; yasnippet magit
 		   (mapcar 'el-get-source-name el-get-sources)))
 
 (if (eq system-type 'windows-nt)
