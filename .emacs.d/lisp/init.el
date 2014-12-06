@@ -39,15 +39,13 @@
 ;;------------
 ;; Paredit
 ;;------------
-
 (require 'paredit) 
 
-(paredit-mode 1)
+(add-hook 'prog-mode-hook 'paredit-mode)
 
 ;;------------
 ;; Magit
 ;;------------
-
 (unless (eq system-type 'windows-nt)
   (add-to-list 'load-path "~/.emacs.d/el-get/magit"))
 (require 'magit)
