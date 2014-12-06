@@ -1,3 +1,8 @@
+;;; package. --- Init file for .emacs.
+;;; Commentary: 
+
+;;; Code:
+
 (load-user-file "packages.el")
 (load-user-file "config.el")
 (load-user-file "clang.el")
@@ -11,6 +16,9 @@
 
 (add-to-list 'load-path "~/.emacs.d/igor-mode-master")
 (require 'igor-mode)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 
 ;;------------
 ;; Tramp
@@ -32,8 +40,8 @@
 ;;------------
 ;; Paredit
 ;;------------
-
 (require 'paredit) 
+
 
 (defun my-paredit-nonlisp ()
   "Turn on paredit mode for non-lisps."
@@ -41,11 +49,11 @@
   (set (make-local-variable 'paredit-space-for-delimiter-predicates)
        '((lambda (endp delimiter) nil)))
 
+
 (add-hook 'prog-mode 'my-paredit-nonlisp)
 ;;------------
 ;; Magit
 ;;------------
-
 (unless (eq system-type 'windows-nt)
   (add-to-list 'load-path "~/.emacs.d/el-get/magit"))
 (require 'magit)
@@ -70,9 +78,9 @@
 
 (define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)
 
-;;============
+;;------------
 ;; Global Modes
-;;============
+;;------------
 
 
 
@@ -111,7 +119,8 @@
 	  "~/.emacs.d/el-get/package/elpa/yasnippet-20141102.1554/snippets")
   (setq yas/root-directory "~/.emacs.d/el-get/yasnippet/snippets"))
 
-(yas/load-directory yas/root-directory)
+(yas-load-directory yas/root-directory 't)
+
 (yas-global-mode 1)
 
 
@@ -285,3 +294,6 @@ If the new path's directories does not exist, create them."
 (setq-default tab-width 4) ; From python habits
 (setq indent-tabs-mode nil) ;; Convert tabs to spaces
 (tool-bar-mode -1) ;; Remove buttons
+
+(provide 'init)
+;;; init.el ends here

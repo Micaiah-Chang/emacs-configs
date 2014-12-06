@@ -1,6 +1,5 @@
-;;------------------
-;;Package Management
-;;------------------
+;;; packages.el --- El-get manages packages here.
+;;; Commentary: 
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -20,22 +19,20 @@
 ;; Note: The following has to be sync manually with git:
 ;; auctex, flymake, powershell.el, pylint, request
 (setq my-packages (append
-		   '(el-get
-			 auto-complete ein
-			 highlight-indentation
-			 jshint-mode nxhtml package
-			 powerline paredit 
-			 popup pymacs python-mode
-			 python-mode quack smex 
-			 tramp request undo-tree 
-			 websocket zenburn) ; yasnippet magit
-		   (mapcar 'el-get-source-name el-get-sources)))
+	  '(el-get 
+		auto-complete ein 
+		highlight-indentation
+		flycheck jshint-mode nxhtml 
+		package powerline paredit 
+		popup pymacs pydoc-info
+		python-mode quack request
+		smex tramp undo-tree 
+		websocket yasnippet zenburn) ; yasnippet magit
+	  (mapcar 'el-get-source-name el-get-sources)))
 
 (if (eq system-type 'windows-nt)
-	(append my-packages '(multi-term))
-  (append my-packages '(yasnippet)))
-
-(el-get 'sync my-packages)
+	(el-get '() (append my-packages '()))
+  (el-get '() (append my-packages '(multi-term))))
 
 
 ;; (defun el-get-cleanup (packages)
@@ -57,7 +54,7 @@
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" .
-			  "http://marmalade-repo.org/packages/")
+						  "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (package-initialize)
