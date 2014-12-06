@@ -12,6 +12,9 @@
 (add-to-list 'load-path "~/.emacs.d/igor-mode-master")
 (require 'igor-mode)
 
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+
 ;;------------
 ;; Tramp
 ;;------------
