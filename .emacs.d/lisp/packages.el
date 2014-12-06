@@ -34,7 +34,7 @@
 							flycheck
 							jshint-mode package
 							powerline paredit 
-							popup pymacs
+							popup pymacs pydoc-info
 							python-mode quack request
 							tramp undo-tree websocket
 							smex yasnippet zenburn) ; yasnippet magit
