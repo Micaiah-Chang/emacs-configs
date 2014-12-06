@@ -13,15 +13,6 @@
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get/recipes")
 
-(push '(:name yasnippet
-			  :website "https://github.com/capitaomorte/yasnippet.git"
-			  :description "YASnippet is a template system for Emacs."
-			  :type github
-			  :pkgname "capitaomorte/yasnippet"
-			  :features "yasnippet"
-			  :compile "yasnippet.el")
-	  el-get-sources)
-
 ;;(el-get 'sync)
 
 ;; Sync all my packages together so long as it has a recipe
