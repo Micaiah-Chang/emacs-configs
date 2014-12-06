@@ -1,3 +1,8 @@
+;;; package. --- Init file for .emacs.
+;;; Commentary: 
+
+;;; Code:
+
 (load-user-file "packages.el")
 (load-user-file "config.el")
 (load-user-file "clang.el")
@@ -67,9 +72,9 @@
 
 (define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)
 
-;;============
+;;------------
 ;; Global Modes
-;;============
+;;------------
 
 
 
@@ -268,3 +273,6 @@ If the new path's directories does not exist, create them."
 (setq-default tab-width 4) ; From python habits
 (setq indent-tabs-mode nil) ;; Convert tabs to spaces
 (tool-bar-mode -1) ;; Remove buttons
+
+(provide 'init)
+;;; init.el ends here

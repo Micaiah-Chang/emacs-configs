@@ -1,7 +1,3 @@
-;;=======
-;; Python
-;;=======
-
 ;; autoenables line number
 (add-hook 'python-mode-hook
 		  #'(lambda ()

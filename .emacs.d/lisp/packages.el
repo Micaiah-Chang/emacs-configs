@@ -1,6 +1,5 @@
-;;------------------
-;;Package Management
-;;------------------
+;;; packages.el --- El-get manages packages here.
+;;; Commentary: 
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -15,13 +14,13 @@
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get/recipes")
 
 (push '(:name yasnippet
-               :website "https://github.com/capitaomorte/yasnippet.git"
-               :description "YASnippet is a template system for Emacs."
-               :type github
-               :pkgname "capitaomorte/yasnippet"
-               :features "yasnippet"
-               :compile "yasnippet.el")
-       el-get-sources)
+			  :website "https://github.com/capitaomorte/yasnippet.git"
+			  :description "YASnippet is a template system for Emacs."
+			  :type github
+			  :pkgname "capitaomorte/yasnippet"
+			  :features "yasnippet"
+			  :compile "yasnippet.el")
+	  el-get-sources)
 
 ;;(el-get 'sync)
 
@@ -29,17 +28,17 @@
 ;; Note: The following has to be sync manually with git:
 ;; auctex, flymake, powershell.el, pylint, request
 (setq my-packages (append
-		   '(el-get ein nxhtml
-			    auto-complete
-			    highlight-indentation
-				jshint-mode package
-				powerline paredit 
-			    popup pymacs
-			    python-mode quack request
-			    tramp undo-tree websocket
-			    smex yasnippet zenburn) ; yasnippet magit
-		   (mapcar 'el-get-source-name el-get-sources)))
+				   '(el-get ein nxhtml
+							auto-complete
+							highlight-indentation
 							flycheck
+							jshint-mode package
+							powerline paredit 
+							popup pymacs
+							python-mode quack request
+							tramp undo-tree websocket
+							smex yasnippet zenburn) ; yasnippet magit
+				   (mapcar 'el-get-source-name el-get-sources)))
 
 (if (eq system-type 'windows-nt)
 	(append my-packages '(multi-term))
@@ -67,7 +66,7 @@
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" .
-			  "http://marmalade-repo.org/packages/")
+						  "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (package-initialize)
