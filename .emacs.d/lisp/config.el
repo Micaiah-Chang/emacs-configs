@@ -22,7 +22,7 @@
 	("71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
  '(geiser-racket-binary "C:\\Program files\\Racket\\Racket.exe")
  '(geiser-racket-gracket-binary "C:\\Program files\\Racket\\GRacket-text.exe")
- '(js3-indent-level 4)
+ '(js3-indent-level 2)
  '(py-indent-paren-spanned-multilines-p nil)
  '(safe-local-variable-values
    (quote
