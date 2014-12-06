@@ -44,7 +44,7 @@
 	(append my-packages '(multi-term))
   (append my-packages '()))
 
-(el-get 'sync my-packages)
+(el-get '() my-packages)
 
 
 ;; (defun el-get-cleanup (packages)
