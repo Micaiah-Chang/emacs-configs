@@ -41,10 +41,8 @@
 				   (mapcar 'el-get-source-name el-get-sources)))
 
 (if (eq system-type 'windows-nt)
-	(append my-packages '(multi-term))
-  (append my-packages '()))
-
-(el-get '() my-packages)
+	(el-get '() (append my-packages '()))
+  (el-get '() (append my-packages '(multi-term))))
 
 
 ;; (defun el-get-cleanup (packages)
