@@ -239,12 +239,12 @@ If the new path's directories does not exist, create them."
 (require 'powerline)
 
 (set-face-attribute 'mode-line nil
-                    :background "OliveDrab3"
-					:foreground "black"
-                    :box nil)
-(set-face-attribute 'mode-line-inactive nil
-                    :box nil)
-; make powerline look like vi
+		    :background "OliveDrab3"
+		    :foreground "black"
+		    :box nil)
+
+(powerline-center-theme)
+
 
 
 ;; No scrollbars on windows
