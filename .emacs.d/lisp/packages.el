@@ -18,21 +18,22 @@
 ;; Sync all my packages together so long as it has a recipe
 ;; Note: The following has to be sync manually with git:
 ;; auctex, flymake, powershell.el, pylint, request
+;; NOTE: python-mode now runs on bzr!!!!!
 (setq my-packages (append
-	  '(el-get 
-		auto-complete ein 
-		highlight-indentation
-		flycheck jshint-mode nxhtml 
-		package powerline paredit 
-		popup pymacs pydoc-info
-		python-mode quack request
-		smex tramp undo-tree 
-		websocket yasnippet zenburn) ; yasnippet magit
+	  '(el-get python-mode
+	    auto-complete color-theme-zenburn ein flycheck
+	    highlight-indentation
+	    jshint-mode magit 
+	    package powerline paredit 
+	    popup pymacs quack request
+	    smex undo-tree websocket
+	    yasnippet) ; yasnippet magit
 	  (mapcar 'el-get-source-name el-get-sources)))
 
+	  
 (if (eq system-type 'windows-nt)
-	(el-get '() (append my-packages '()))
-  (el-get '() (append my-packages '(multi-term))))
+    (el-get '() (append my-packages '()))
+  (el-get '() (append my-packages '(multi-term nxhtml python-mode pydoc-info))))
 
 
 ;; (defun el-get-cleanup (packages)
@@ -58,6 +59,7 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (package-initialize)
+
 ;;(when
 ;;     (load(expand-file-name "~/.emacs.d/elpa/package.el"))
 ;;   (package-initialize))
