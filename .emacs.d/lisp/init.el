@@ -56,7 +56,7 @@
 ;;------------
 (unless (eq system-type 'windows-nt)
   (add-to-list 'load-path "~/.emacs.d/el-get/magit"))
-(require 'magit)
+(autoload 'magit "magit" "Magit" t)
 (global-set-key (kbd "\C-c g") 'magit-status)
 
 
@@ -76,7 +76,10 @@
   (setq magit-diff-options (remove "-w --ignore-space-at-eol" magit-diff-options))
   (magit-refresh))
 
-(define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)
+(add-hook 'magit-mode-hook 
+	  #'(lambda () (define-key magit-status-mode-map
+	     (kbd "W")
+	     'magit-toggle-whitespace)))
 
 ;;------------
 ;; Global Modes
