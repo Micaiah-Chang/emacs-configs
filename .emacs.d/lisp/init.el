@@ -29,13 +29,13 @@
 ;; Octave
 ;;------------
 (setq auto-mode-alist (cons '("\\.m$" . octave-mode)
-							auto-mode-alist))
+			    auto-mode-alist))
 
 ;;------------
 ;; Scala
 ;;------------
 (setq auto-mode-alist (cons '("\\.scala$" . scala-mode)
-							auto-mode-alist))
+			    auto-mode-alist))
 
 ;;------------
 ;; Paredit
@@ -47,7 +47,7 @@
   "Turn on paredit mode for non-lisps."
   (interactive)
   (set (make-local-variable 'paredit-space-for-delimiter-predicates)
-       '((lambda (endp delimiter) nil)))
+       '((lambda (endp delimiter) nil))))
 
 
 (add-hook 'prog-mode 'my-paredit-nonlisp)
@@ -87,7 +87,7 @@
 ;;info stuff
 (add-to-list 'load-path "~/.emacs.d/el-get/pydoc-info")
 (unless (eq system-type 'windows-nt)
-    (require 'pydoc-info))
+  (require 'pydoc-info))
 
 (require 'info-look)
 
@@ -107,7 +107,7 @@
 
 
 ;;yasnippet
- 
+
 (if (eq system-type 'windows-nt)
     (add-to-list 'load-path "~/.emacs.d/el-get/yasnippet/snippets")
   (add-to-list 'load-path "~/.emacs.d/el-get/yasnippet/snippets"))
@@ -154,8 +154,8 @@ Also returns nil if pid is nil."
   (when pid
     (let ((attributes (process-attributes pid)) (cmd))
       (dolist (attr attributes)
-        (if (string= "comm" (car attr))
-            (setq cmd (cdr attr))))
+	(if (string= "comm" (car attr))
+	    (setq cmd (cdr attr))))
       (if (and cmd (or (string= "emacs" cmd) (string= "emacs.exe" cmd))) t))))
 
 (defadvice desktop-owner (after pry-from-cold-dead-hands activate)
@@ -185,14 +185,14 @@ Also returns nil if pid is nil."
   "Return a new file path of a given file path.
 If the new path's directories does not exist, create them."
   (let* ((backupRootDir
-		  "~/.emacs.d/emacs-backup")
-         (filePath
-		  (replace-regexp-in-string "[A-Za-z]:" "" fpath )) ; remove Windows driver letter in path, "C:"
-         (backupFilePath
-		  (replace-regexp-in-string "//" "/"
-									(concat backupRootDir filePath "~"))))
+	  "~/.emacs.d/emacs-backup")
+	 (filePath
+	  (replace-regexp-in-string "[A-Za-z]:" "" fpath )) ; remove Windows driver letter in path, "C:"
+	 (backupFilePath
+	  (replace-regexp-in-string "//" "/"
+				    (concat backupRootDir filePath "~"))))
     (make-directory (file-name-directory backupFilePath)
-					(file-name-directory backupFilePath))
+		    (file-name-directory backupFilePath))
     backupFilePath))
 
 
@@ -200,34 +200,34 @@ If the new path's directories does not exist, create them."
   "Moves both current buffer and file it's visiting to DIR."
   (interactive "DNew directory: ")
   (let* ((name (buffer-name))
-		 (filename (buffer-file-name))
-		 (dir
-		  (if (string-match dir "\\(?:/\\|\\\\)$")
-			  (substring dir 0 -1) dir))
-		 (newname (concat dir "/" name)))
+	 (filename (buffer-file-name))
+	 (dir
+	  (if (string-match dir "\\(?:/\\|\\\\)$")
+	      (substring dir 0 -1) dir))
+	 (newname (concat dir "/" name)))
 
-	(if (not filename)
-		(message "Buffer '%s' is not visiting a file!" name)
-	  (progn
-		(copy-file filename newname 1)
-		(delete-file filename)
-		(set-visited-file-name newname)
-		(set-buffer-modified-p nil) 	t))))
+    (if (not filename)
+	(message "Buffer '%s' is not visiting a file!" name)
+      (progn
+	(copy-file filename newname 1)
+	(delete-file filename)
+	(set-visited-file-name newname)
+	(set-buffer-modified-p nil) 	t))))
 
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
   (let ((name (buffer-name))
-		(filename (buffer-file-name)))
-	(if (not filename)
-		(message "Buffer '%s' is not visiting a file!" name)
-	  (if (get-buffer new-name)
-		  (message "A buffer named '%s' already exists!" new-name)
-		(progn
-		  (rename-file name new-name 1)
-		  (rename-buffer new-name)
-		  (set-visited-file-name new-name)
-		  (set-buffer-modified-p nil))))))
+	(filename (buffer-file-name)))
+    (if (not filename)
+	(message "Buffer '%s' is not visiting a file!" name)
+      (if (get-buffer new-name)
+	  (message "A buffer named '%s' already exists!" new-name)
+	(progn
+	  (rename-file name new-name 1)
+	  (rename-buffer new-name)
+	  (set-visited-file-name new-name)
+	  (set-buffer-modified-p nil))))))
 
 
 
@@ -249,7 +249,7 @@ If the new path's directories does not exist, create them."
 
 ;; No scrollbars on windows
 (when (eq system-type 'windows-nt)
-    (menu-bar-no-scroll-bar))
+  (menu-bar-no-scroll-bar))
 
 
 (require 'ido)
