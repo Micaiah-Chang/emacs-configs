@@ -21,12 +21,13 @@
 ;; NOTE: python-mode now runs on bzr!!!!!
 (setq my-packages (append
 	  '(el-get python-mode
-	    auto-complete color-theme-zenburn ein flycheck
+	    auto-complete color-theme-zenburn flycheck
 	    highlight-indentation
-	    jshint-mode magit 
+	    js3-mode jshint-mode magit 
 	    package powerline paredit 
-	    popup pymacs quack request
-	    smex undo-tree websocket
+	    popup pymacs quack
+		racket-mode
+	    smex undo-tree
 	    yasnippet) ; yasnippet magit
 	  (mapcar 'el-get-source-name el-get-sources)))
 
