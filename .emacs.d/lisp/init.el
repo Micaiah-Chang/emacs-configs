@@ -13,6 +13,7 @@
   (load-user-file "term-config.el"))
 (load-user-file "python.el")
 (load-user-file "js.el")
+(load-user-file "TypeScript.el")
 
 ;; (add-to-list 'load-path "~/.emacs.d/igor-mode-master")
 ;; (require 'igor-mode)
@@ -81,6 +82,7 @@
 	     (kbd "W")
 	     'magit-toggle-whitespace)))
 
+(setq magit-last-seen-setup-instructions "1.4.0")
 ;;------------
 ;; Global Modes
 ;;------------
