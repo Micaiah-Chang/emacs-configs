@@ -14,8 +14,8 @@
 (load-user-file "python.el")
 (load-user-file "js.el")
 
-(add-to-list 'load-path "~/.emacs.d/igor-mode-master")
-(require 'igor-mode)
+;; (add-to-list 'load-path "~/.emacs.d/igor-mode-master")
+;; (require 'igor-mode)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
