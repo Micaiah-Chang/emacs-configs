@@ -126,6 +126,21 @@
 
 (yas-global-mode 1)
 
+;;web-mode
+(setq auto-mode-alist (remove '("\\.[sx]?html?\\(\\.[a-zA-Z_]+\\)?\\'" . html-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-hook 'web-mode-hook #'(lambda () (yas-activate-extra-mode 'html-mode)
+                             (yas-activate-extra-mode 'nxml-mode)))
+
+
+(setq web-mode-engines-alist
+      '(("php"    . "\\.phtml\\'")
+        ("blade"  . "\\.blade\\.")
+        ("django" . "\\.html\\'")))
+
+(setq web-mode-content-types
+	  '(("django" . "\\.html\\'")))
+
 
 ;;autocomplete
 (add-to-list 'load-path "~/.emacs.d/el-get/auto-complete")
