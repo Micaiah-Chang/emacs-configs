@@ -20,7 +20,7 @@
 ;; auctex, flymake, powershell.el, pylint, request
 ;; NOTE: python-mode now runs on bzr!!!!!
 (setq my-packages (append
-	  '(el-get python-mode
+	  '(el-get
 	    auto-complete color-theme-zenburn
 	    highlight-indentation
 	    js3-mode jshint-mode magit
