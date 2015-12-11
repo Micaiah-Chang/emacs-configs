@@ -23,7 +23,8 @@
 	  '(el-get python-mode
 	    auto-complete color-theme-zenburn
 	    highlight-indentation
-	    js3-mode jshint-mode magit 
+	    js3-mode jshint-mode magit
+		markdown-mode
 	    package powerline paredit 
 	    popup pymacs quack
 		racket-mode
