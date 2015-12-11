@@ -59,7 +59,7 @@
 						  "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
-(package-initialize)
+(el-get 'sync)
 
 ;;(when
 ;;     (load(expand-file-name "~/.emacs.d/elpa/package.el"))
