@@ -87,6 +87,9 @@
 ;;------------
 
 
+(setq mac-option-modifier 'super)
+(setq mac-command-modifier 'meta)
+
 
 ;;info stuff
 (add-to-list 'load-path "~/.emacs.d/el-get/pydoc-info")

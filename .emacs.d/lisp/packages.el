@@ -31,10 +31,10 @@
 	    yasnippet) ; yasnippet magit
 	  (mapcar 'el-get-source-name el-get-sources)))
 
-	  
-(if (eq system-type 'windows-nt)
-    (el-get '() (append my-packages '()))
-  (el-get '() (append my-packages '(multi-term nxhtml python-mode pydoc-info))))
+
+(cond ((eq system-type 'windows-nt) (el-get '() (append my-packages '(exec-path-from-shell))))
+      ((eq system-type 'darwin) (el-get '() (append my-packages '(multi-term nxhtml exec-path-from-shell))))
+      (else (el-get '() (append my-packages '(multi-term nxhtml python-mode pydoc-info flycheck)))))
 
 
 ;; (defun el-get-cleanup (packages)
@@ -60,6 +60,9 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (el-get 'sync)
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 ;;(when
 ;;     (load(expand-file-name "~/.emacs.d/elpa/package.el"))
