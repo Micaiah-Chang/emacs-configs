@@ -13,7 +13,6 @@
   (load-user-file "term-config.el"))
 (load-user-file "python.el")
 (load-user-file "js.el")
-(load-user-file "TypeScript.el")
 
 ;; (add-to-list 'load-path "~/.emacs.d/igor-mode-master")
 ;; (require 'igor-mode)
