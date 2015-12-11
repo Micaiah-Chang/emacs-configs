@@ -103,16 +103,16 @@
 
 
 ;;info stuff
-(add-to-list 'load-path "~/.emacs.d/el-get/pydoc-info")
-(unless (eq system-type 'windows-nt)
-  (require 'pydoc-info))
+;; (add-to-list 'load-path "~/.emacs.d/el-get/pydoc-info")
+;; (unless (eq system-type 'windows-nt)
+;;   (require 'pydoc-info))
 
-(require 'info-look)
+;; (require 'info-look)
 
-(info-lookup-add-help
- :mode 'python-mode
- :regexp "[[:alnum:]_]+"
- :doc-spec '(("(python)Index" nil "")))
+;; (info-lookup-add-help
+;;  :mode 'python-mode
+;;  :regexp "[[:alnum:]_]+"
+;;  :doc-spec '(("(python)Index" nil "")))
 
 ;; whenever an external process changes a file underneath emacs, and there
 ;; was no unsaved changes in the corresponding buffer, just revert its
