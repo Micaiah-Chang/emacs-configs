@@ -157,6 +157,11 @@
 	  '(("django" . "\\.html\\'")))
 
 
+; ace-jump-mode
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+
 ;;autocomplete
 (add-to-list 'load-path "~/.emacs.d/el-get/auto-complete")
 (require 'auto-complete-config)

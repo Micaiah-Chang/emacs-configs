@@ -21,6 +21,7 @@
 ;; NOTE: python-mode now runs on bzr!!!!!
 (setq my-packages (append
 	  '(el-get
+        ace-jump-mode
 	    auto-complete color-theme-zenburn
 	    highlight-indentation
 	    js3-mode jshint-mode magit
