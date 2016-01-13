@@ -45,7 +45,8 @@
 	 (require-final-newline . t))))
  '(scroll-down-aggressively 0.4)
  '(scroll-up-aggressively 0.5)
- '(show-paren-mode t))
+ '(show-paren-mode t)
+ '(tls-checktrust t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
