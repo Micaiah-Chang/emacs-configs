@@ -1,5 +1,5 @@
 ;;; packages.el --- El-get manages packages here.
-;;; Commentary: 
+;;; Commentary:
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -26,7 +26,7 @@
 	    highlight-indentation
 	    js3-mode jshint-mode magit
 		markdown-mode
-	    package powerline paredit 
+	    package powerline paredit
 	    popup pymacs quack
 		racket-mode
 	    smex undo-tree

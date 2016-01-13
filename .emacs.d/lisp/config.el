@@ -5,13 +5,13 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["#242424" "#e5786d" "#95e454"
-	(lambda
-	  (x)
-	  (+ x x))
-	(lambda
-	  (x)
-	  (+ x x))
-	"#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
+    (lambda
+      (x)
+      (+ x x))
+    (lambda
+      (x)
+      (+ x x))
+    "#cae682" "#8ac6f2" "#333366" "#ccaa8f" "#f6f3e8"])
  '(column-number-mode t)
  '(cua-enable-cua-keys nil)
  '(cua-mode t nil (cua-base))
@@ -19,7 +19,7 @@
  '(custom-file "~/.emacs.d/lisp/config.el")
  '(custom-safe-themes
    (quote
-	("71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
+    ("71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
  '(desktop-restore-eager 7)
  ;; '(flycheck-highlighting-mode (quote lines))
  '(geiser-racket-binary "C:\\Program files\\Racket\\Racket.exe")
