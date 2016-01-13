@@ -73,12 +73,13 @@
         (list
          (format "gnutls-cli%s --x509cafile %s -p %%p %%h"
                  (if (eq window-system 'w32) ".exe" "") trustfile)))
+  (setf tls-checktrust t)
   (setq gnutls-verify-error t)
   (setq gnutls-trustfiles (list trustfile)))
 
-(unless tls-checktrust
-  (setq tls-checktrust t))
 
+(if (fboundp 'gnutls-available-p)
+    (fmakunbound 'gnutls-available-p))
 
 (el-get 'sync)
 
