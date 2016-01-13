@@ -325,7 +325,7 @@ If the new path's directories does not exist, create them."
 (show-paren-mode 1) ; Parent matching for lisp + infix languages
 (fset 'yes-or-no-p 'y-or-n-p) ; Shorten things!
 (setq-default tab-width 4) ; From python habits
-(setq indent-tabs-mode nil) ;; Convert tabs to spaces
+(setq-default indent-tabs-mode nil)
 (tool-bar-mode -1) ;; Remove buttons
 
 (provide 'init)
