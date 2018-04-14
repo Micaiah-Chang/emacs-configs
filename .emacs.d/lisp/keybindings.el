@@ -2,11 +2,22 @@
 ;; Key Bindings
 ;;=============
 
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+
 (global-set-key (kbd "\C-x t") 'transpose-buffers)
 
 (global-set-key (kbd "\C-x e") 'eval-buffer)
 
 (global-set-key (kbd "\C-c d") 'insert-date)
+
+(global-set-key (kbd "C-M-;") 'uncomment-region)
+
+(global-set-key (kbd "M-[") 'ace-window)
 
 
 (defun transpose-buffers (arg)
@@ -31,3 +42,8 @@
                  ((equal prefix '(16)) "%A, %d. %B %Y")))
         (system-time-locale "de_DE"))
     (insert (format-time-string format))))
+
+(when (eq system-type 'darwin)
+  (progn (add-to-list 'load-path "~/.emacs.d/el-get/dash-at-point/")
+         (autoload 'dash-at-point "dash-at-point")
+         (global-set-key (kbd "\C-c \C-d") 'dash-at-point)))

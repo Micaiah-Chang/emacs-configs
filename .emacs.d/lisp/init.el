@@ -1,5 +1,5 @@
 ;;; package. --- Init file for .emacs.
-;;; Commentary: 
+;;; Commentary:
 
 ;;; Code:
 
@@ -17,7 +17,7 @@
 ;; (add-to-list 'load-path "~/.emacs.d/igor-mode-master")
 ;; (require 'igor-mode)
 
-;(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 
 ;;------------
@@ -51,7 +51,7 @@
 ;;------------
 ;; Paredit
 ;;------------
-(require 'paredit) 
+(require 'paredit)
 
 
 (defun my-paredit-nonlisp ()
@@ -87,7 +87,7 @@
   (setq magit-diff-options (remove "-w --ignore-space-at-eol" magit-diff-options))
   (magit-refresh))
 
-(add-hook 'magit-mode-hook 
+(add-hook 'magit-mode-hook
 	  #'(lambda () (define-key magit-status-mode-map
 	     (kbd "W")
 	     'magit-toggle-whitespace)))
@@ -123,6 +123,7 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets) ;; Display file path after buffer name
 
+(editorconfig-mode 1)
 
 ;;yasnippet
 
@@ -142,10 +143,17 @@
 (yas-global-mode 1)
 
 ;;web-mode
+(defun personalized-webmode-hooks ()
+  "Hooks for web mode."
+  (yas-activate-extra-mode 'html-mode)
+  (yas-activate-extra-mode 'nxml-mode)
+  (yas-activate-extra-mode 'js3-mode)
+  (setq web-mode-code-indent-offset 4)
+  (setq web-mode-markup-indent-offset 4))
+
 (setq auto-mode-alist (remove '("\\.[sx]?html?\\(\\.[a-zA-Z_]+\\)?\\'" . html-mode) auto-mode-alist))
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-(add-hook 'web-mode-hook #'(lambda () (yas-activate-extra-mode 'html-mode)
-                             (yas-activate-extra-mode 'nxml-mode)))
+(add-hook 'web-mode-hook 'personalized-webmode-hooks)
 
 
 (setq web-mode-engines-alist
@@ -185,6 +193,11 @@
   (if (eq (desktop-owner) (emacs-pid))
       (desktop-save desktop-dirname)))
 (add-hook 'auto-save-hook 'my-desktop-save)
+
+;; Look at the same point of the file
+(setq-default save-place t)
+(setq save-place-file (concat user-emacs-directory ".saved-places"))
+(require 'saveplace)
 
 (defun emacs-process-p (pid)
   "If pid is the process ID of an emacs process, return t, else nil.
@@ -293,6 +306,9 @@ If the new path's directories does not exist, create them."
 (require 'ido)
 (ido-mode t)
 
+(setq multi-term-program "/bin/bash")
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Required to stop multi-term from breaking
 ;; (defmacro ad-macro-p (definition)
@@ -324,6 +340,8 @@ If the new path's directories does not exist, create them."
 (defalias 'mbf 'move-buffer-file )
 (defalias 'rnfb 'rename-file-and-buffer)
 
+
+(winner-mode t) ;; Allow undoes in window config
 (global-linum-mode 1) ; Show line numbers
 (global-visual-line-mode 1) ; Soft word-wrapping
 (column-number-mode 1) ; Show columns
@@ -332,6 +350,33 @@ If the new path's directories does not exist, create them."
 (setq-default tab-width 4) ; From python habits
 (setq-default indent-tabs-mode nil)
 (tool-bar-mode -1) ;; Remove buttons
+(setq next-line-add-newlines nil) ;; Don't add newline at the end of files
+(setq require-final-newline nil) ;; Don't add newlines at the end of files
+
+
+(defun save-macro (name)
+  "Save a macro.
+Take a NAME as argument
+   and save the last defined macro under
+   this name at the end of your .emacs"
+  (interactive "SName of the macro: ")  ; ask for the name of the macro
+  (kmacro-name-last-macro name)         ; use this name for the macro
+  (find-file user-init-file)            ; open ~/.emacs or other user init file
+  (goto-char (point-max))               ; go to the end of the .emacs
+  (newline)                             ; insert a newline
+  (insert-kbd-macro name)               ; copy the macro
+  (newline)                             ; insert a newline
+  (switch-to-buffer nil))               ; return to the initial buffer
+
+;; ebill-setup macro
+(fset 'ebill-setup
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217848 109 116 return 99 100 32 126 47 100 101 118 47 83 105 109 112 108 101 76 101 103 97 108 47 101 98 105 108 108 47 return 46 47 109 97 110 97 103 101 46 112 121 32 114 117 110 115 101 114 118 101 114 return 134217848 114 110 98 return 115 101 114 118 101 114 return 134217848 109 116 return 99 100 32 126 47 100 101 118 47 83 105 109 112 108 101 76 101 103 97 108 47 101 98 105 108 108 return 115 104 32 115 116 97 114 116 117 112 46 115 104 return 134217848 114 110 98 return 98 97 99 107 103 114 111 117 110 100 return 134217848 109 116 return 99 100 32 126 47 100 101 118 47 83 105 109 112 108 101 76 101 103 97 108 47 101 98 105 108 108 return 46 47 backspace backspace 134217848 114 110 98 return 115 104 101 108 108 return] 0 "%d")) arg)))
+
+
+;; ;; counselgo/vendorportal setup macro
+(fset 'cg-setup
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217848 109 116 return 99 100 32 126 47 100 101 118 47 83 105 109 112 108 101 76 101 103 97 108 47 118 101 110 100 111 114 112 111 114 116 97 108 return 115 104 32 114 117 110 115 101 114 118 101 114 46 115 104 return 100 101 97 99 116 105 118 97 116 101 return 115 111 117 114 99 101 32 99 103 tab 98 tab 97 99 tab return 115 104 32 115 backspace 114 117 110 tab return 134217848 114 110 98 return 99 103 95 115 101 114 118 101 114 return 134217848 109 116 return 100 101 97 99 116 105 118 97 116 101 return 99 100 32 126 47 100 101 118 47 83 105 109 112 108 101 76 101 103 97 108 47 118 101 110 100 111 114 112 111 114 116 97 108 return 115 111 117 114 99 101 32 99 103 95 backspace 101 110 118 tab 98 tab 97 99 tab return 115 104 32 115 backspace 115 116 97 114 tab return 134217848 114 110 98 return 99 103 95 98 97 99 107 103 114 111 117 110 100 return 134217848 109 116 return 99 100 32 126 47 100 101 118 47 83 105 109 112 108 101 76 101 103 97 108 47 118 101 110 100 111 114 112 111 114 116 97 108 return 100 101 97 99 116 105 118 97 116 101 return 115 111 117 114 99 101 32 99 103 101 110 118 47 98 tab 97 99 tab return 134217848 114 110 98 return 99 103 95 115 104 101 108 108 return] 0 "%d")) arg)))
+
 
 (provide 'init)
 ;;; init.el ends here

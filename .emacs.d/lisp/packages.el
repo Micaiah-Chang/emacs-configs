@@ -21,7 +21,7 @@
 ;; NOTE: python-mode now runs on bzr!!!!!
 (setq my-packages (append
 	  '(el-get
-        ace-jump-mode
+        ace-jump-mode ace-window
 	    auto-complete color-theme-zenburn
 	    highlight-indentation
 	    js3-mode jshint-mode magit
@@ -35,8 +35,9 @@
 
 
 (cond ((eq system-type 'windows-nt) (el-get '() (append my-packages '(exec-path-from-shell))))
-      ((eq system-type 'darwin) (el-get '() (append my-packages '(multi-term nxhtml exec-path-from-shell))))
-      (else (el-get '() (append my-packages '(multi-term nxhtml python-mode pydoc-info flycheck)))))
+      ((eq system-type 'darwin) (el-get '() (append my-packages '(multi-term  exec-path-from-shell multiple-cursors
+                                                                             dash-at-point))))
+      (else (el-get '() (append my-packages '(multi-term python-mode pydoc-info flycheck multiple-cursors)))))
 
 
 ;; (defun el-get-cleanup (packages)
