@@ -21,6 +21,8 @@
    (quote
     ("71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default)))
  '(desktop-restore-eager 7)
+ '(flycheck-check-syntax-automatically (quote (save idle-change mode- enabled)))
+ '(flycheck-idle-change-delay 4)
  '(geiser-racket-binary "C:\\Program files\\Racket\\Racket.exe")
  '(geiser-racket-gracket-binary "C:\\Program files\\Racket\\GRacket-text.exe")
  '(js3-indent-level 2)
