@@ -66,19 +66,6 @@
 ;; Dunno if I need the above, will check on next startup
 
 ;; Where pymacs is installed to
-(push "~/.emacs.d/el-get/pymacs" exec-path)
-(setenv "PATH"
-        (concat
-         "~/.emacs.d/el-get/pymacs" ":"
-         (getenv "PATH")
-         ))
-
-(autoload 'pymacs-apply "pymacs")
-(autoload 'pymacs-call "pymacs")
-(autoload 'pymacs-eval "pymacs" nil t)
-(autoload 'pymacs-exec "pymacs" nil t)
-(autoload 'pymacs-load "pymacs" nil t)
-(autoload 'pymacs-autoload "pymacs")
 (require 'pymacs)
 (pymacs-load "ropemacs" "rope-")
 (add-hook 'python-mode #'ropemacs-mode)
