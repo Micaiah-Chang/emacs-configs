@@ -56,23 +56,6 @@
   "Increase linter error catching"
   (when (< flycheck-checker-error-threshold 600)
     (setq flycheck-checker-error-threshold 600)))
-
-(add-hook 'python-mode-hook 'jedi:setup)
-(add-hook 'python-mode-hook 'increase-linter)
-(setq jedi:complete-on-dot t)
-
-(defun my-venv (dir-name)
-  (interactive "D")
-  (setq venv-location dir-name)
-  (setq python-environment-directory venv-location)
-  (call-interactively 'venv-workon)
-  (setq jedi:server-args (list "--virtual-env" dir-name))
-  (call-interactively 'jedi:start-dedicated-server)
-  (jedi:setup))
-
-
-(require 'virtualenvwrapper)
-(setq venv-location '("/home/alan/dev/eBill/venv/" "/home/alan/okta/venv"))
 ;;=================================================================
 ;; (add-to-list 'load-path "~/.emacs.d/el-get/django-mode/")
 ;; (require 'django-html-mode)
