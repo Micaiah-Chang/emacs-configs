@@ -24,7 +24,6 @@
  '(geiser-racket-binary "C:\\Program files\\Racket\\Racket.exe")
  '(geiser-racket-gracket-binary "C:\\Program files\\Racket\\GRacket-text.exe")
  '(js3-indent-level 2)
- '(multi-term-default-dir "~/dev/eBill")
  '(package-selected-packages (quote (pylint powershell let-alist flymake cl-generic)))
  '(py-indent-paren-spanned-multilines-p nil)
  '(safe-local-variable-values
