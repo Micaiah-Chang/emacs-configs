@@ -127,18 +127,11 @@
 
 ;;yasnippet
 
-(if (eq system-type 'windows-nt)
-    (add-to-list 'load-path "~/.emacs.d/el-get/yasnippet/snippets")
-  (add-to-list 'load-path "~/.emacs.d/el-get/yasnippet/snippets"))
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 
 (require 'yasnippet)
 
-(if (eq system-type 'windows-nt)
-    (setq yas/root-directory
-	  "~/.emacs.d/el-get/package/elpa/yasnippet-20141102.1554/snippets")
-  (setq yas/root-directory "~/.emacs.d/el-get/yasnippet/snippets"))
 
-(yas-load-directory yas/root-directory 't)
 
 (yas-global-mode 1)
 
