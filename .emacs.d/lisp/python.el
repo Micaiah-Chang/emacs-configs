@@ -47,7 +47,6 @@
 
 ;;(require 'python-mode)
 ;; Python Mode things
-(require 'ein)
 
 
 (global-set-key (kbd "C-x j") 'python-django-open-project)
