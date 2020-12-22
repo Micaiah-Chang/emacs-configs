@@ -79,9 +79,6 @@
   (setq gnutls-trustfiles (list trustfile)))
 
 
-(if (fboundp 'gnutls-available-p)
-    (fmakunbound 'gnutls-available-p))
-
 (el-get 'sync)
 
 (when (memq window-system '(mac ns))
