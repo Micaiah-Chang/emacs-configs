@@ -188,9 +188,9 @@
 (add-hook 'auto-save-hook 'my-desktop-save)
 
 ;; Look at the same point of the file
+(require 'saveplace)
 (setq-default save-place t)
 (setq save-place-file (concat user-emacs-directory ".saved-places"))
-(require 'saveplace)
 
 (defun emacs-process-p (pid)
   "If pid is the process ID of an emacs process, return t, else nil.
