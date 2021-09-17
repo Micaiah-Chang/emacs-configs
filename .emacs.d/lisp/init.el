@@ -17,6 +17,8 @@
 ;; (add-to-list 'load-path "~/.emacs.d/igor-mode-master")
 ;; (require 'igor-mode)
 
+(tool-bar-mode -1)
+
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 
