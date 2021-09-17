@@ -8,6 +8,10 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
+(setq flycheck-flake8rc "~/.flake8")
+
+
+(elpy-enable)
 
 (setq auto-mode-alist
       (append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
@@ -25,8 +29,9 @@
 		   (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
 
 
-;; (require 'flycheck)
+(require 'flycheck)
 
+(add-hook 'after-init-hook #'global-flycheck-mode)
 ;;(require 'python-mode)
 ;; Python Mode things
 
