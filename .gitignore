@@ -1,6 +1,5 @@
 dir
 *
-!*/
 !.emacs
 !.emacs.d/*
 /Documents/*
