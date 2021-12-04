@@ -27,8 +27,6 @@
  '(geiser-racket-gracket-binary "C:\\Program files\\Racket\\GRacket-text.exe")
  '(js3-indent-level 2)
  '(multi-term-program "/bin/zsh")
- '(package-selected-packages
-   '(company-tabnine eterm-256color pylint powershell let-alist flymake cl-generic))
  '(py-indent-paren-spanned-multilines-p nil)
  '(safe-local-variable-values
    '((python-shell-interpretor . "python")
