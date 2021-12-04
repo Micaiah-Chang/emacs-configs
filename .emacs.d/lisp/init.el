@@ -99,7 +99,8 @@
 ;; Global Modes
 ;;------------
 
-
+;; Prevent giant single line files from freezing everything
+(global-so-long-mode 1)
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
 
