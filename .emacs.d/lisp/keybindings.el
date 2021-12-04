@@ -42,8 +42,3 @@
                  ((equal prefix '(16)) "%A, %d. %B %Y")))
         (system-time-locale "de_DE"))
     (insert (format-time-string format))))
-
-(when (eq system-type 'darwin)
-  (progn (add-to-list 'load-path "~/.emacs.d/el-get/dash-at-point/")
-         (autoload 'dash-at-point "dash-at-point")
-         (global-set-key (kbd "\C-c \C-d") 'dash-at-point)))
