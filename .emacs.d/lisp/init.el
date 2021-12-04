@@ -50,10 +50,6 @@
 (setq auto-mode-alist (cons '("\\.scala$" . scala-mode)
 			    auto-mode-alist))
 
-;;------------
-;; Paredit
-;;------------
-(require 'paredit)
 
 
 (defun my-paredit-nonlisp ()
@@ -67,32 +63,9 @@
 ;;------------
 ;; Magit
 ;;------------
-(unless (eq system-type 'windows-nt)
-  (add-to-list 'load-path "~/.emacs.d/el-get/magit"))
-(autoload 'magit "magit" "Magit" t)
-(global-set-key (kbd "\C-c g") 'magit-status)
 
 
-(defun magit-toggle-whitespace ()
-  (interactive)
-  (if (member "-w --ignore-space-at-eol" magit-diff-options)
-      (magit-dont-ignore-whitespace)
-    (magit-ignore-whitespace)))
 
-(defun magit-ignore-whitespace ()
-  (interactive)
-  (add-to-list 'magit-diff-options "-w --ignore-space-at-eol")
-  (magit-refresh))
-
-(defun magit-dont-ignore-whitespace ()
-  (interactive)
-  (setq magit-diff-options (remove "-w --ignore-space-at-eol" magit-diff-options))
-  (magit-refresh))
-
-(add-hook 'magit-mode-hook
-	  #'(lambda () (define-key magit-status-mode-map
-	     (kbd "W")
-	     'magit-toggle-whitespace)))
 
 (setq magit-last-seen-setup-instructions "1.4.0")
 ;;------------
@@ -123,29 +96,27 @@
 ;; Mostly used for git
 (global-auto-revert-mode 1)
 
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets) ;; Display file path after buffer name
 
 (editorconfig-mode 1)
 
 ;;yasnippet
 
-(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+;; (add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
 
-(require 'yasnippet)
+;; (require 'yasnippet)
 
 
 
-(yas-global-mode 1)
+;; (yas-global-mode 1)
 
-;;web-mode
-(defun personalized-webmode-hooks ()
-  "Hooks for web mode."
-  (yas-activate-extra-mode 'html-mode)
-  (yas-activate-extra-mode 'nxml-mode)
-  (yas-activate-extra-mode 'js3-mode)
-  (setq web-mode-code-indent-offset 4)
-  (setq web-mode-markup-indent-offset 4))
+;; ;;web-mode
+;; (defun personalized-webmode-hooks ()
+;;   "Hooks for web mode."
+;;   (yas-activate-extra-mode 'html-mode)
+;;   (yas-activate-extra-mode 'nxml-mode)
+;;   (yas-activate-extra-mode 'js3-mode)
+;;   (setq web-mode-code-indent-offset 4)
+;;   (setq web-mode-markup-indent-offset 4))
 
 (setq auto-mode-alist (remove '("\\.[sx]?html?\\(\\.[a-zA-Z_]+\\)?\\'" . html-mode) auto-mode-alist))
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
@@ -162,38 +133,26 @@
 
 
 ; ace-jump-mode
-(require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
 
 
 ;;autocomplete
-(add-to-list 'load-path "~/.emacs.d/el-get/auto-complete")
-(require 'auto-complete-config)
-(add-to-list 'load-path "~/.emacs.d/el-get/auto-complete/dict")
+;; (require 'auto-complete-config)
+;; (add-to-list 'load-path "~/.emacs.d/el-get/auto-complete/dict")
 
-;; Allow yas to trigger first then ac
-(ac-set-trigger-key "TAB")
-(ac-set-trigger-key "<tab>")
+;; ;; Allow yas to trigger first then ac
+;; (ac-set-trigger-key "TAB")
+;; (ac-set-trigger-key "<tab>")
 
 ;; smex configurations
-(setq smex-save-file "~/.emacs.d/.smex-items")
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key [(meta shift x)] 'smex-major-mode-commands)
 
 
-(require 'desktop)
-(desktop-save-mode 1)
-(defun my-desktop-save ()
-  (interactive)
-  ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
-  (if (eq (desktop-owner) (emacs-pid))
-      (desktop-save desktop-dirname)))
-(add-hook 'auto-save-hook 'my-desktop-save)
 
 ;; Look at the same point of the file
-(require 'saveplace)
-(setq-default save-place t)
-(setq save-place-file (concat user-emacs-directory ".saved-places"))
+(use-package saveplace
+  :config
+  (setq-default save-place t)
+  (setq save-place-file (concat user-emacs-directory ".saved-places")))
 
 (defun emacs-process-p (pid)
   "If pid is the process ID of an emacs process, return t, else nil.
@@ -210,17 +169,6 @@ Also returns nil if pid is nil."
   (when (not (emacs-process-p ad-return-value))
     (setq ad-return-value nil)))
 
-
-(defun redo-tree-stuff ()
-  (progn
-    (require 'undo-tree)
-    (global-undo-tree-mode 1)
-    (defalias 'redo 'undo-tree-redo)
-    (global-unset-key "\C-z")
-    (global-set-key (kbd "\C-z") 'undo)
-    (global-set-key [(ctrl shift z)] 'redo)))
-
-(redo-tree-stuff)
 
 
 
@@ -285,12 +233,6 @@ If the new path's directories does not exist, create them."
 
 (require 'powerline)
 
-(set-face-attribute 'mode-line nil
-		    :background "OliveDrab3"
-		    :foreground "black"
-		    :box nil)
-
-(powerline-center-theme)
 
 
 
@@ -299,8 +241,6 @@ If the new path's directories does not exist, create them."
   (menu-bar-no-scroll-bar))
 
 
-(require 'ido)
-(ido-mode t)
 
 
 (load-user-file "multi-term.el")

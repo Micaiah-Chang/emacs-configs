@@ -1,89 +1,117 @@
 ;;; packages.el --- El-get manages packages here.
 ;;; Commentary:
 
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
 
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get/recipes")
 
 ;;(el-get 'sync)
 
-;; Sync all my packages together so long as it has a recipe
-;; Note: The following has to be sync manually with git:
-;; auctex, flymake, powershell.el, pylint, request
-;; NOTE: python-mode now runs on bzr!!!!!
-(setq my-packages (append
-	  '(el-get
-        ace-jump-mode ace-window
-	    auto-complete color-theme-zenburn
-	    highlight-indentation
-	    js3-mode jshint-mode magit
-		markdown-mode
-	    package powerline paredit
-	    popup pymacs quack
-		racket-mode
-	    smex undo-tree
-	    yasnippet) ; yasnippet magit
-	  (mapcar 'el-get-source-name el-get-sources)))
 
+;; (cond ((eq system-type 'windows-nt) (el-get '() (append my-packages '(exec-path-pfrom-shell))))
+;;       ((eq system-type 'darwin) (el-get '() (append my-packages '(exec-path-from-shell multiple-cursors
+;; ))))
+;;       (else (el-get '() (append my-packages '(multi-term python-mode pydoc-info flycheck multiple-cursors)))))
 
-(cond ((eq system-type 'windows-nt) (el-get '() (append my-packages '(exec-path-from-shell))))
-      ((eq system-type 'darwin) (el-get '() (append my-packages '(multi-term  exec-path-from-shell multiple-cursors
-                                                                             dash-at-point))))
-      (else (el-get '() (append my-packages '(multi-term python-mode pydoc-info flycheck multiple-cursors)))))
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default 't)
 
+(use-package ace-jump-mode
+  :config
+  (define-key global-map (kbd "C-c SPC") 'ace-jump-mode))
+(use-package ace-window)
+(use-package zenburn-theme)
+(use-package desktop
+  :config
+  (desktop-save-mode 1)
+  (defun my-desktop-save ()
+    (interactive)
+    ;; Don't call desktop-save-in-desktop-dir, as it prints a message.
+    (if (eq (desktop-owner) (emacs-pid))
+        (desktop-save desktop-dirname)))
+  (add-hook 'auto-save-hook 'my-desktop-save))
+(use-package editorconfig)
+(use-package elpy)
+(use-package eterm-256color)
+(use-package flycheck)
+(use-package ido
+  :config
+  (ido-mode t))
+(use-package highlight-indentation)
+(use-package paredit)
+(use-package magit
+  :init
+  (add-hook 'magit-mode-hook
+	        #'(lambda () (define-key magit-status-mode-map
+	                       (kbd "W")
+	                       'magit-toggle-whitespace)))
 
-;; (defun el-get-cleanup (packages)
-;;   "Remove packages not explicitly declared"
-;;   (let* ((packages-to-keep (el-get-dependencies (mapcar 'el-get-as-symbol packages)))
-;;          (packages-to-remove (set-difference (mapcar 'el-get-as-symbol
-;;                                                      (el-get-list-package-names-with-status
-;;                                                       "installed")) packages-to-keep)))
-;;     (mapc 'el-get-remove packages-to-remove)))
+  :config
+  (global-set-key (kbd "\C-c g") 'magit-status)
+  (defun magit-toggle-whitespace ()
+    (interactive)
+    (if (member "-w --ignore-space-at-eol" magit-diff-options)
+        (magit-dont-ignore-whitespace)
+      (magit-ignore-whitespace)))
 
-;; (el-get-cleanup my-packages)
+  (defun magit-ignore-whitespace ()
+    (interactive)
+    (add-to-list 'magit-diff-options "-w --ignore-space-at-eol")
+    (magit-refresh))
 
+  (defun magit-dont-ignore-whitespace ()
+    (interactive)
+    (setq magit-diff-options (remove "-w --ignore-space-at-eol" magit-diff-options))
+    (magit-refresh)))
+(use-package multi-term
+  :config
+  (add-hook 'term-mode-hook #'eterm-256color-mode))
+(use-package popup)
+(use-package quack)
+(use-package racket-mode)
+(use-package smex
+  :config
+  (setq smex-save-file "~/.emacs.d/.smex-items")
+  (global-set-key (kbd "M-x") 'smex)
+  (global-set-key [(meta shift x)] 'smex-major-mode-commands))
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode 1)
+  (defalias 'redo 'undo-tree-redo)
+  (global-unset-key "\C-z")
+  (global-set-key (kbd "\C-z") 'undo)
+  (global-set-key [(ctrl shift z)] 'redo))
+(use-package powerline)
+(set-face-attribute 'mode-line nil
+		            :background "OliveDrab3"
+		            :foreground "black"
+		            :box nil)
+(powerline-center-theme)
+(use-package powershell)
+(use-package powershell-mode)
 
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" .
-						  "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(use-package company-tabnine :ensure t)
+(use-package company
+  :config
+  (add-hook 'after-init-hook 'global-company-mode)
+  (add-to-list 'company-backends #'company-tabnine)
+  ;; Trigger completion immediately.
+  (setq company-idle-delay 0)
 
-;; generate trusted root certs from
-;; python's certifi
-(let ((trustfile
-       (replace-regexp-in-string
-        "\\\\" "/"
-        (replace-regexp-in-string
-         "\n" ""
-         (shell-command-to-string "python -m certifi")))))
-  (setq tls-program
-        (list
-         (format "gnutls-cli%s --x509cafile %s -p %%p %%h"
-                 (if (eq window-system 'w32) ".exe" "") trustfile)))
-  (setf tls-checktrust t)
-  (setq gnutls-verify-error t)
-  (setq gnutls-trustfiles (list trustfile)))
+  ;; Number the candidates (use M-1, M-2 etc to select completions).
+  (setq company-show-numbers t))
+(require 'uniquify)
 
-
-(el-get 'sync)
-
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-
-;;(when
-;;     (load(expand-file-name "~/.emacs.d/elpa/package.el"))
-;;   (package-initialize))
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets) ;; Display file path after buffer name
