@@ -5,9 +5,6 @@
 ;; 			  (highlight-indentation-current-column-mode)
 ;; 			  (remove-hook 'before-save-hook 'delete-trailing-whitespace)))
 
-(add-to-list 'load-path "~/.emacs.d/el-get/")
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
 (setq flycheck-flake8rc "~/.flake8")
 
 
@@ -29,9 +26,6 @@
 		   (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
 
 
-(require 'flycheck)
-
-(add-hook 'after-init-hook #'global-flycheck-mode)
 ;;(require 'python-mode)
 ;; Python Mode things
 
